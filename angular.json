@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "angular-spa-project"
+  "defaultProject": "angular-spa-project",
+  "cli": {
+    "analytics": false
+  }
 }
