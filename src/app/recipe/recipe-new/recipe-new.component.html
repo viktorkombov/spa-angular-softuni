@@ -1,0 +1,30 @@
+<div class="new-recipe">
+    <form action="#">
+        <fieldset>
+            <label for="name">Име на ястието:</label>
+            <input type="text" name="name" placeholder="Име на ястието...">
+            <label for="recipes">Подправки:</label>
+            <p>Изреди със запетая*</p>
+            <input type="text" name="recipes" placeholder="Изброй подправките със запетая...">
+            <label for="difficulty">Трудност на приготвяне:</label>
+            <select name="difficulty">
+                <option value=1>Лесно за приготвяне</option>
+                <option value=2>Средно по трудност</option>
+                <option value=3>Трудно за приготвяне</option>
+            </select>
+            <label for="necesseryTime">Необходимо време:</label>
+            <select name="necesseryTime">
+                <option value=15>15 мин.</option>
+                <option value=30>30 мин.</option>
+                <option value=45>45 мин.</option>
+                <option value=60>1 час</option>
+            </select>
+            <label for="img">Качи изображение на ястието:</label>
+            <input type="file" id="img" name="img" accept="image/*">
+            <label for="recipeInfo">Начин на приготвяне:</label>
+            <textarea name="recipeInfo" rows="4" cols="50" placeholder="Напиши своята рецепта тук..."></textarea>
+            <br>
+            <button>Публикувай!</button>
+        </fieldset>
+    </form>
+</div>

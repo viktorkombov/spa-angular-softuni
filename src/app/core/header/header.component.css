@@ -54,10 +54,19 @@ nav ul li img {
   height: 25px;
 }
 
-nav a:hover {
-  color: black;
+nav ul li img:hover {
+  filter: blur(3);
+  filter: brightness(3);
+  filter: drop-shadow(0px 0px 2px darkblue);
   cursor: pointer;
   text-decoration: none;
+}
+
+nav a:hover {
+  color: darkblue;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: 0 0 1px darkblue;
 }
 
 nav input {
