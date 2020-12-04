@@ -1,1 +1,148 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+body {
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    background-color: rgb(250, 246, 246);
+    
+}
+
+h1 {
+    line-height: 36px;
+    font-weight: 500px;
+}
+
+label {
+    display: block;
+}
+
+input {
+    width: 250px;
+    color: black;
+  
+}
+
+input[type=text] {
+    border: 2px solid #97A92B;
+    border-radius: 5px;
+    height: 23px;
+    box-sizing: border-box;
+    padding-top: 11px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    color: black;
+}
+
+.button, button {
+    border: solid;
+    border-width: 1px;
+    padding: 5px 30px;
+    color: darkolivegreen;
+    border-radius: 15%;
+    background: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button:hover{
+    background-color: #97A92B;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #97A92B;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.recipe-info {
+    display: inline-block;
+    background: #97A92B;
+    padding: 20px;
+    padding-right: 12px;
+    padding-top: 9px;
+    padding-left: 9px;
+    color: black;
+    border: solid;
+    border-color: #6B8C25;
+    border-width: 2px;
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.recipe-info p {
+    text-align: center;
+    width: 200;
+    margin: 5px;
+}
+
+.recipe-info:hover {
+    color: black;
+    background: #DFDF95;
+    border-color: gray;
+    cursor: pointer;
+}
+
+.recipe-info img {
+    width: 200px;
+    height: 150px;
+    border: solid;
+    border-width: 2px;
+    border-color: darkgreen;
+    margin-bottom: 25px;
+}
+
+.header {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('https://popolr.com/Assets/Images/landing/how.jpg');
+    color: white;
+    background-size: cover;
+}
+
+.header h1 {
+    padding: 140px 0px 0px 400px;
+    margin: 0;
+    width: 34%;
+    position: static;
+}
+
+.header p {
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-left: 400px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px black;
+}
+
+.header p span {
+    font-weight: bold;
+}
+
+.header .buttons {
+    padding: 0px 0px 100px 400px;
+    position: static;
+}
+
+.header .buttons .button {
+    margin-right: 30px;
+    color: white;
+}
+
+.header .buttons .button:hover {
+    color: black;
+}

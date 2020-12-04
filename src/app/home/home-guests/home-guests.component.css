@@ -1,0 +1,56 @@
+.home-page-for-guests {
+    background: whitesmoke;
+    color: white;
+    /* border: solid;
+    border-width: 1px;
+    border-color: white; */
+}
+
+.caption-for-guests {
+text-align: center;
+font-size: 25px;
+padding: 20px;
+font-weight: 600;
+margin: 0;
+color: darkolivegreen;
+}
+
+.guest-page-header {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('https://popolr.com/Assets/Images/landing/how.jpg');
+    color: white;
+    background-size: cover;
+}
+
+.guest-page-header h1 {
+    padding: 140px 0px 5px 400px;
+    margin: 0;
+    width: 34%;
+    position: static;
+}
+
+.guest-page-header p {
+    margin-left: 400px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px black;
+}
+
+.guest-page-header p span {
+    font-weight: bold;
+}
+
+.guest-page-header .login-and-register {
+    padding: 0px 0px 100px 400px;
+    position: static;
+}
+
+.guest-page-header .login-and-register a {
+    margin-right: 30px;
+}
+
+
+.options-for-login-or-register p {
+    margin: 0;
+    text-align: center;
+    padding-bottom: 40px;
+    color: darkolivegreen;
+}
