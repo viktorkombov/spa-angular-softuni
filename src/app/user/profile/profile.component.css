@@ -1,0 +1,42 @@
+.profile-page {
+    text-align: center;
+}
+
+.profile-template {
+    display: inline-block;
+    padding-top: 90px;
+    width: 300px;
+}
+
+.profile-template h3 {
+    border-top: solid;
+    font-size: 15px;
+    padding-top: 5px;
+    border-width: 2px;
+}
+
+.profile-template h3 span {
+    font-size: 20px;
+}
+
+.profile-template h4 {
+    border-top: solid;
+    padding: 10px;
+    border-bottom: solid;
+    border-width: 2px;
+    font-size: 13px;
+}
+
+.profile-template h4 span {
+    font-size: 18px;
+}
+
+
+.profile-template img {
+    width: 280px;
+}
+
+.profile-recipes h3 {
+    padding-top: 30px;
+    padding-bottom: 15px;
+}

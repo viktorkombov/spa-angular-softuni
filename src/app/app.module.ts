@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserModule } from './user/user.module';
+import { SearchingToolComponent } from './searching-tool/searching-tool.component';
+import { RecipeModule } from './recipe/recipe.module';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
+    SearchingToolComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule, 
     HomeModule,
+    UserModule,
+    RecipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

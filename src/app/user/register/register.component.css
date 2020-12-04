@@ -1,0 +1,16 @@
+.register-form {
+    background: rgb(250, 246, 246);
+    color: darkolivegreen;
+    margin: 0;
+}
+
+.register-form fieldset {
+    text-align: center;
+    padding: 100px 0px 100px;
+    margin-top: 0px;
+    border: none;
+}
+
+.register-form input {
+    margin-top: 5px;
+}

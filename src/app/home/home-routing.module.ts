@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeGuestsComponent } from './home-guests/home-guests.component'
+import { HomeLoggedInComponent } from './home-logged-in/home-logged-in.component';
 
 const routes: Routes = [
     {
@@ -11,10 +12,10 @@ const routes: Routes = [
         path: 'home',
         component: HomeGuestsComponent
     },
-    // {
-    //   path: '**',
-    //   component: NotFoundComponent
-    // }
+    {
+      path: 'home-for-logged-in',
+      component: HomeLoggedInComponent
+    }
 ];
 
 export const HomeRoutingModule = RouterModule.forChild(routes);
