@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeLoggedInComponent } from './home-logged-in/home-logged-in.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeGuestsComponent } from './home-guests/home-guests.component';
+import { RecipeModule } from '../recipe/recipe.module';
 
 
 
@@ -10,7 +11,8 @@ import { HomeGuestsComponent } from './home-guests/home-guests.component';
   declarations: [ HomeLoggedInComponent, HomeGuestsComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    RecipeModule
   ],
   exports: [
     HomeLoggedInComponent, HomeGuestsComponent

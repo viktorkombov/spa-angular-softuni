@@ -10,13 +10,15 @@ import { UserModule } from './user/user.module';
 import { SearchingToolComponent } from './searching-tool/searching-tool.component';
 import { RecipeModule } from './recipe/recipe.module';
 import { AboutComponent } from './about/about.component';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     SearchingToolComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,9 @@ import { AboutComponent } from './about/about.component';
     CoreModule, 
     HomeModule,
     UserModule,
-    RecipeModule
+    RecipeModule,
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
