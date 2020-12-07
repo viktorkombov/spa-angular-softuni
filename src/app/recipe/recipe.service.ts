@@ -17,7 +17,7 @@ export class RecipeService {
   // }
 
   saveRecipe(data: any): Observable<IRecipe<any>> {
-    return this.http.post<IRecipe<any>>(`http://localhost:3000/api/recipes`, data);
+    return this.http.post<IRecipe<any>>(`http://localhost:3000/api/recipes`, data, {withCredentials: true});
   }
 
 }

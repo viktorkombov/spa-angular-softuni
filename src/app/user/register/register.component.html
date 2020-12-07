@@ -1,26 +1,64 @@
-<form action="#" class="register-form">
+<h2 class="register-form-caption">Регистрационна форма</h2>
+<form [formGroup]="form" class="register-form" (ngSubmit)="submitHandler()">
     <fieldset>
+        <!-- username -->
         <p>
             <label for="name">Потребителско име:</label>
-            <input type="text" name="username" placeholder="Потребителско име...">
+            <input [class.input-error]="form.get('username').touched && !!form.get('username').errors" type="text"
+                name="name"  placeholder="Потребителско име..." formControlName="username">
         </p>
+
+        <p *ngIf="form.get('username').touched && form.get('username').errors?.required" class="error">
+            Username is required!
+        </p>
+        <p *ngIf="form.get('username').touched && form.get('username').errors?.minlength" class="error">
+            Username must be at least 5 characters!
+        </p>
+
+        <!-- name -->
         <p>
             <label for="name">Име:</label>
-            <input type="text" name="name" placeholder="Име...">
+            <input [class.input-error]="form.get('name').touched && !!form.get('name').errors" type="text"
+                name="username"  placeholder="Име..." formControlName="name">
         </p>
+
+        <p *ngIf="form.get('username').touched && form.get('username').errors?.required" class="error">
+            Username is required!
+        </p>
+
+        <!-- surname -->
         <p>
             <label for="surname">Фамилия:</label>
-            <input type="text" name="surname" placeholder="Фамилия">
+            <input [class.input-error]="form.get('surname').touched && !!form.get('surname').errors" type="text"
+                name="username" id="username" placeholder="Фамилия..." formControlName="surname">
         </p>
+
+        <!-- password -->
         <p>
             <label for="passowrd">Парола:</label>
-            <input type="text" name="password" placeholder="******">
+            <input [class.input-error]="form.get('password').touched && !!form.get('password').errors" type="password"
+                name="password" id="password" placeholder="******" formControlName="password"> </p>
+
+        <p *ngIf="form.get('password').touched && form.get('password').errors?.required" class="error">
+            Password is required!
         </p>
+        <p *ngIf="form.get('password').touched && form.get('password').errors?.minlength" class="error">
+            Password must be at least 4 characters!
+        </p>
+
+        <!-- repeatpassword -->
         <p>
             <label for="passowrd">Повтори паролата:</label>
-            <input type="text" name="repeatPassword" placeholder="******">
-
+            <input [class.input-error]="form.get('rePassword').touched && !!form.get('rePassword').errors"
+                type="password" name="rePassword" id="rePassword" placeholder="******" formControlName="rePassword">
         </p>
+
+        <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.required" class="error">Repeat
+            Repeat Password is required!</p>
+        <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.rePasswordValidator" class="error">
+            Repeat
+            Password does not match password!</p>
+
         <button>Регистрирай се!</button>
     </fieldset>
 </form>

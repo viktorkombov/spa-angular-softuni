@@ -5,6 +5,9 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserService } from './user.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -12,7 +15,11 @@ import { UserService } from './user.service';
   declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    SharedModule,
+    CoreModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService

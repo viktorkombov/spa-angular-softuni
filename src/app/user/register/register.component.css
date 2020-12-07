@@ -1,3 +1,10 @@
+.register-form-caption {
+    color: darkolivegreen;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 100px;
+}
+
 .register-form {
     background: rgb(250, 246, 246);
     color: darkolivegreen;
@@ -6,7 +13,7 @@
 
 .register-form fieldset {
     text-align: center;
-    padding: 100px 0px 100px;
+    padding: 10px 0px 100px;
     margin-top: 0px;
     border: none;
 }
@@ -14,3 +21,13 @@
 .register-form input {
     margin-top: 5px;
 }
+
+p.error {
+    border-radius: 0.3em;
+    color: red;
+    padding-top: 0;
+  }
+
+.input-error {
+    border-left: 0.3em solid red;
+  }

@@ -6,6 +6,7 @@ import { RecipeNewComponent } from './recipe-new/recipe-new.component';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { RecipeService } from './recipe.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,8 @@ import { RecipeService } from './recipe.service';
   imports: [
     CommonModule,
     RecipeRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [
     RecipeService

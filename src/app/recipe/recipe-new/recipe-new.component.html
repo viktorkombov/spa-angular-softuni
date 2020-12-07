@@ -1,28 +1,28 @@
 <div class="new-recipe">
-    <form action="#">
+    <form form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
         <fieldset>
             <label for="name">Име на ястието:</label>
-            <input type="text" name="name" placeholder="Име на ястието...">
+            <input #recipeName="ngModel" type="text" name="recipeName" placeholder="Име на ястието..." ngModel required>
             <label for="recipes">Подправки:</label>
             <p>Изреди със запетая*</p>
-            <input type="text" name="recipes" placeholder="Изброй подправките със запетая...">
+            <input #ingredients="ngModel" type="text" name="ingredients" placeholder="Изброй подправките със запетая..." ngModel required>
             <label for="difficulty">Трудност на приготвяне:</label>
-            <select name="difficulty">
+            <select #difficultyLevel="ngModel" name="difficultyLevel" ngModel required>
                 <option value=1>Лесно за приготвяне</option>
                 <option value=2>Средно по трудност</option>
                 <option value=3>Трудно за приготвяне</option>
             </select>
             <label for="necesseryTime">Необходимо време:</label>
-            <select name="necesseryTime">
+            <select #necesseryTime="ngModel" name="necesseryTime" ngModel required>
                 <option value=15>15 мин.</option>
                 <option value=30>30 мин.</option>
                 <option value=45>45 мин.</option>
                 <option value=60>1 час</option>
             </select>
-            <label for="img">Качи изображение на ястието:</label>
-            <input type="file" id="img" name="img" accept="image/*">
+            <label for="img">Линк за изображение на ястието:</label>
+            <input #imageUrl="ngModel" type="text" name="imageUrl" ngModel required>
             <label for="recipeInfo">Начин на приготвяне:</label>
-            <textarea name="recipeInfo" rows="4" cols="50" placeholder="Напиши своята рецепта тук..."></textarea>
+            <textarea #recipeInfo="ngModel" name="recipeInfo" rows="4" cols="50" placeholder="Напиши своята рецепта тук..." ngModel required></textarea>
             <br>
             <button>Публикувай!</button>
         </fieldset>

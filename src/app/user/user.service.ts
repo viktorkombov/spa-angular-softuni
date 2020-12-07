@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { IUser } from '../shared/interfaces';
+import { catchError, tap } from 'rxjs/operators';
+import { AuthService } from '../core/auth.service';
 
 @Injectable()
 export class UserService {
 
-  public isLogged: boolean
-  constructor() {
-    this.isLogged = localStorage.getItem('isLogged') === 'true' ? true : false;
-   }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) { }
 
-  login(): void {
-    this.isLogged = true;
-    localStorage.setItem('isLogged', 'true')
+  getCurrentUserProfile(): Observable<any> {
+    return this.http.get(`/users/profile`).pipe(
+      tap((user: IUser) => this.authService.updateCurrentUser(user))
+    );
   }
 
-  logout(): void {
-    this.isLogged = false;
-    localStorage.setItem('isLogged', 'false')
+  updateProfile(data: any): Observable<IUser> {
+    return this.http.put(`/users/profile`, data).pipe(
+      tap((user: IUser) => this.authService.updateCurrentUser(user))
+    );
   }
 }
