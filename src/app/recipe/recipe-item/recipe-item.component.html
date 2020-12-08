@@ -1,7 +1,7 @@
 <div class="recipe-info" routerLink="/recipe/details/{{recipe._id}}">
     <img src="{{recipe.imageUrl}}" alt="Снимка на частта">
     <p>{{recipe.recipeName | shortenText}}</p>
-    <p>{{recipe.ingredients | shortenText}}</p>
-    <p>{{recipe.necesseryTime}}</p>
+    <p>{{recipe.ingredients.join(', ') | shortenText}}</p>
+    <p>{{recipe.necesseryTime | shortenText}}</p>
     <p>{{recipe.userId.username}}</p>
 </div>

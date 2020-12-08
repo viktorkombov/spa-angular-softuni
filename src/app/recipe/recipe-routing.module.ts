@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeNewComponent } from './recipe-new/recipe-new.component';
 
 const routes: Routes = [
@@ -18,11 +19,11 @@ const routes: Routes = [
       },
       {
         path: 'details/:id',
-        component: RecipeDetailsComponent,
-        data: {
-          title: 'NEW THEME',
-          isLogged: true
-        }
+        component: RecipeDetailsComponent
+      },
+      {
+        path: 'edit/:id',
+        component: RecipeEditComponent
       }
     ]
   }

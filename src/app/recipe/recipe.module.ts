@@ -7,11 +7,12 @@ import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { RecipeService } from './recipe.service';
 import { FormsModule } from '@angular/forms';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 
 
 
 @NgModule({
-  declarations: [RecipeDetailsComponent, RecipeNewComponent, RecipeItemComponent],
+  declarations: [RecipeDetailsComponent, RecipeNewComponent, RecipeItemComponent, RecipeEditComponent],
   imports: [
     CommonModule,
     RecipeRoutingModule,

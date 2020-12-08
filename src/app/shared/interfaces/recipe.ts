@@ -9,5 +9,9 @@ export interface IRecipe<T = string> extends IBase {
   ingredients: string[];
   difficultyLevel: string;
   imageUrl: string;
-  recipeContnet: string;
+  recipeContent: string;
+  category: string;
+  quantity: number;
+  creator: string;
+  likedBy: string[];
 }

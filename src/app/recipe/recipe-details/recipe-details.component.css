@@ -39,14 +39,17 @@
     float: left;
     width: 500px;
     border-bottom: 1px solid darkolivegreen;
-    margin-right: 80px;
-    margin-left: 20px;
+    margin-right: 50px;
+    margin-left: 100px;
     margin-bottom: 20px;
 }
 
 .ingredients p {
+    text-align: center;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    font-weight: 600;
+    color: darkolivegreen;
 }
 
 .ingredients ul li {
@@ -55,4 +58,13 @@
     padding-right: 10px;
     padding-left: 10px;
     border-left: solid;
+}
+
+.ingredients ul {
+    text-align: left;
+    padding: 0px;
+}
+
+.my-own-recipe a{
+    margin: 10px;
 }

@@ -2,14 +2,14 @@
     <form form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
         <fieldset>
             <label for="name">Име на ястието:</label>
-            <input #recipeName="ngModel" type="text" name="recipeName" placeholder="Име на ястието..." ngModel required>
+            <input #recipeName="ngModel" type="text" name="recipeName" placeholder="Име на ястието..." value="{{recipe.recipeName}}" ngModel required >
             <label for="ingredients">Нужни съставки:</label>
             <p>Изреди със запетая*</p>
-            <input #ingredients="ngModel" type="text" name="ingredients" placeholder="Изброй подправките със запетая..." ngModel required>
+            <input #ingredients="ngModel" type="text" name="ingredients" placeholder="Изброй подправките със запетая..." value="{{recipe.ingredients.join(', ')}}" ngModel required>
             <label for="quantity">Порции:</label>
-            <input #quantity="ngModel" type="number" name="quantity" placeholder="Порции..." ngModel required>
+            <input #quantity="ngModel" type="number" name="quantity" placeholder="Порции..." value="{{recipe.ingredients}}" ngModel required>
             <label for="category">Категория:</label>
-            <select #category="ngModel" name="category" ngModel category>
+            <select #category="ngModel" [(ngModel)]="selectedCategory" name="category" ngModel category >
                 <option value="Предястия">Предястия</option>
                 <option value="Основни">Основни</option>
                 <option value="Супи и чорби">Супи и чорби</option>
@@ -20,22 +20,22 @@
                 
             </select>
             <label for="difficulty">Трудност на приготвяне:</label>
-            <select #difficultyLevel="ngModel" name="difficultyLevel" ngModel required>
+            <select #difficultyLevel="ngModel" [(ngModel)]="selectedDifficultyLevel" name="difficultyLevel" ngModel required>
                 <option value="Лесно за приготвяне">Лесно за приготвяне</option>
                 <option value="Средно по трудност">Средно по трудност</option>
                 <option value="Трудно за приготвяне">Трудно за приготвяне</option>
             </select>
             <label for="necesseryTime">Необходимо време:</label>
-            <select #necesseryTime="ngModel" name="necesseryTime" ngModel required>
+            <select #necesseryTime="ngModel" [(ngModel)]="selectedNecesseryTime" name="necesseryTime" ngModel required>
                 <option value="15 мин.">15 мин.</option>
                 <option value="30 мин.">30 мин.</option>
                 <option value="45 мин.">45 мин.</option>
                 <option value="1 час">1 час</option>
             </select>
             <label for="img">Линк за изображение на ястието:</label>
-            <input #imageUrl="ngModel" type="text" name="imageUrl" ngModel required>
+            <input #imageUrl="ngModel" type="text" name="imageUrl" value="{{recipe.imageUrl}}" ngModel required>
             <label for="recipeContent">Начин на приготвяне:</label>
-            <textarea #recipeContent="ngModel" name="recipeContent" rows="4" cols="50" placeholder="Напиши своята рецепта тук..." ngModel required></textarea>
+            <textarea #recipeContent="ngModel" name="recipeContent" rows="4" cols="50" placeholder="Напиши своята рецепта тук..." ngModel required>{{recipe.recipeContent}}</textarea>
             <br>
             <button>Публикувай!</button>
         </fieldset>
