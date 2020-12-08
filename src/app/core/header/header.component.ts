@@ -11,8 +11,9 @@ export class HeaderComponent implements OnDestroy {
 
   hideNavigation = false;
 
-  isLogged$ = this.authService.isLogged$;
-  isReady$ = this.authService.isReady$;
+  get isLogged$(): boolean {
+    return this.authService.isLogged$;
+  }
 
   constructor(
     private authService: AuthService,
@@ -20,7 +21,11 @@ export class HeaderComponent implements OnDestroy {
   ) { }
 
   logoutHandler(): void {
-    this.authService.logout().subscribe(() => this.router.navigate(['/user/login']));
+    this.authService.logout().subscribe(() => this.router.navigate(['/']));
+  }
+
+  getUserHander(): void {
+    this.authService.getCurrentUserProfile().subscribe(() => this.router.navigate(['/user/profile']))
   }
 
   ngOnDestroy(): void {

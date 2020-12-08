@@ -16,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RecipeRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     RecipeService

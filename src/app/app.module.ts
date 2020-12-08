@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { HomeModule } from './home/home.module';
+import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserModule } from './user/user.module';
 import { SearchingToolComponent } from './searching-tool/searching-tool.component';
@@ -19,12 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     SearchingToolComponent,
     AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule, 
-    HomeModule,
     UserModule,
     RecipeModule,
     SharedModule,

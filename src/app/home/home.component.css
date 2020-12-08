@@ -63,3 +63,23 @@ color: darkolivegreen;
 .options-for-login-or-register a:hover {
     color: darkblue;
 }
+
+.for-logged-in {
+    padding-bottom: 80px;
+    margin-bottom: 50px;
+}
+
+.for-sharing-button {
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 5px;
+}
+
+.caption-for-logged-in {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: darkolivegreen;
+}

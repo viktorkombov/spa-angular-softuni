@@ -9,15 +9,14 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   loadRecipeList(): Observable<IRecipe[]> {
-    return this.http.get<IRecipe[]>(`http://localhost:3000/api/recipes`);
+    return this.http.get<IRecipe[]>(`http://localhost:3000/api/recipes`, {withCredentials: true});
   }
 
-  // loadRecipe(id: string): Observable<IRecipe<IPost>> {
-  //   return this.http.get<IRecipe<IPost>>(`/recipes/${id}`);
-  // }
+  loadRecipe(id: string): Observable<IRecipe> {
+    return this.http.get<IRecipe>(`http://localhost:3000/api/recipes/${id}`, { withCredentials: true });
+  }
 
   saveRecipe(data: any): Observable<IRecipe<any>> {
     return this.http.post<IRecipe<any>>(`http://localhost:3000/api/recipes`, data, {withCredentials: true});
   }
-
 }

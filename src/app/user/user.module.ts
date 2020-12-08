@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
+import { RecipeModule } from '../recipe/recipe.module';
 
 
 
@@ -19,7 +20,8 @@ import { CoreModule } from '../core/core.module';
     FormsModule,
     SharedModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecipeModule
   ],
   providers: [
     UserService

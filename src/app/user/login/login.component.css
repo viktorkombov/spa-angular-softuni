@@ -1,3 +1,10 @@
+.login-form-caption {
+    color: darkolivegreen;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 130px;
+}
+
 .login-form {
     background: rgb(250, 246, 246);
     color:darkolivegreen;
@@ -7,7 +14,7 @@
 .login-form fieldset {
     margin-top: 0px;
     text-align: center;
-    padding: 190px 0px 180px;
+    padding: 10px 0px 180px;
     border: none;
 }
 

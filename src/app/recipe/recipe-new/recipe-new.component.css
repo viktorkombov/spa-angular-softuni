@@ -1,68 +1,3 @@
-.not-found {
-    padding-top: 200px;
-    text-align: center;
-}
-
-.not-found h1 {
-    font-size: 100px;
-}
-
-.not-found h2 {
-    padding-top: 50px;
-    font-size: 50px;
-}
-.not-found p {
-    padding-top: 50px;
-    padding-bottom: 100px;
-}
-
-
-/* profile */
-
-.profile-page {
-    text-align: center;
-}
-
-.profile-template {
-    display: inline-block;
-    padding-top: 90px;
-    width: 300px;
-}
-
-.profile-template h3 {
-    border-top: solid;
-    font-size: 15px;
-    padding-top: 5px;
-    border-width: 2px;
-}
-
-.profile-template h3 span {
-    font-size: 20px;
-}
-
-.profile-template h4 {
-    border-top: solid;
-    padding: 10px;
-    border-bottom: solid;
-    border-width: 2px;
-    font-size: 13px;
-}
-
-.profile-template h4 span {
-    font-size: 18px;
-}
-
-
-.profile-template img {
-    width: 280px;
-}
-
-.profile-recipes h3 {
-    padding-top: 30px;
-    padding-bottom: 15px;
-}
-
-
 /* new recipe */
 .new-recipe {
     padding-top: 60px;
@@ -114,3 +49,19 @@
 .new-recipe textarea {
     height: 230px;
 }
+
+.new-recipe input[type='number'] {
+    border: solid 2px rgb(140, 165, 71);
+    border-radius: 5px;
+    height: 20px;
+    padding-left: 5px;
+    outline: none;
+}
+
+.new-recipe input[type='number']:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    color: black;
+}
+

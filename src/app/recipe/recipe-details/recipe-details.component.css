@@ -28,9 +28,31 @@
     text-align: justify;
     padding-left: 100px;
     padding-right: 70px;
-    padding-top: 30px;
+    padding-top: 18px;
 }
 
 .recipe-info-page .likes {
     text-align: center;
+}
+
+.ingredients {
+    float: left;
+    width: 500px;
+    border-bottom: 1px solid darkolivegreen;
+    margin-right: 80px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ingredients p {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.ingredients ul li {
+    color: darkolivegreen;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-left: solid;
 }

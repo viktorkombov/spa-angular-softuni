@@ -17,8 +17,8 @@ import { appInterceptorProvider } from './app.interceptor';
   ],
   providers: [
     AuthService,
-    AuthGuard,
-    appInterceptorProvider
+    AuthGuard
+    // appInterceptorProvider
   ]
 })
 export class CoreModule { }

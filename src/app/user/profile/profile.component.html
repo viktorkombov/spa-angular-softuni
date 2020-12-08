@@ -1,45 +1,11 @@
 <div class="profile-page">
     <div class="profile-template">
         <img src="https://image.freepik.com/free-vector/woman-profile-cartoon_18591-58475.jpg" alt="Профилна снимка">
-        <h3>Потребителско име: <span>Vanya</span></h3>
-        <h4>Име: <span class="first-name">Иванка</span> <span class="surname"> Иванова</span></h4>
+        <h3>Потребителско име: <span>{{currentUser.username}}</span></h3>
+        <h4>Име: <span class="first-name">{{currentUser.name}}</span> <span class="surname"> {{currentUser.surname}}</span></h4>
     </div>
         <div class="profile-recipes">
             <h3>Публикувани рецепти:</h3>
-            <div class="recipe-info">
-                <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636" alt="Снимка на частта">
-                <p>Ангренажен ремък</p>
-                <p>Втора употреба</p>
-                <p>Добро състояние</p>
-                <p>Цена: 50 лв.</p>
-            </div>
-            <div class="recipe-info">
-                <img src="https://static.oprah.com/2017/03/201703-orig-healthy-plate-949x534.jpg" alt="Снимка на частта">
-                <p>Ангренажен ремък</p>
-                <p>Втора употреба</p>
-                <p>Добро състояние</p>
-                <p>Цена: 50 лв.</p>
-            </div>
-            <div class="recipe-info">
-                <img src="https://www.childrens.com/wps/wcm/connect/childrenspublic/e1e7f304-f08d-4464-88de-548d1435362e/shutterrecipe_369960455_800x480.jpg?MOD=AJPERES&CVID=" alt="Снимка на частта">
-                <p>Ангренажен ремък</p>
-                <p>Втора употреба</p>
-                <p>Добро състояние</p>
-                <p>Цена: 50 лв.</p>
-            </div>
-            <div class="recipe-info">
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/9d/55/66/1900-park-fare.jpg" alt="Снимка на частта">
-                <p>Ангренажен ремък</p>
-                <p>Втора употреба</p>
-                <p>Добро състояние</p>
-                <p>Цена: 50 лв.</p>
-            </div>
-            <div class="recipe-info">
-                <img src="https://images.all-free-download.com/images/graphicthumb/fries_and_steak_on_plate_193268.jpg" alt="Снимка на частта">
-                <p>Ангренажен ремък</p>
-                <p>Втора употреба</p>
-                <p>Добро състояние</p>
-                <p>Цена: 50 лв.</p>
-            </div>
+            <app-recipe-item *ngFor="let recipe of recipeList" [recipe]="recipe" ></app-recipe-item>
     </div>
 </div>

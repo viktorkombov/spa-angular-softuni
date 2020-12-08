@@ -1,0 +1,33 @@
+<div class="home-page-for-guests">
+    <div class="header">
+        <h1 *ngIf="!isLogged$">
+            Научи нова рецепта за вкусна закуска, обяд или вечеря!
+        </h1>
+        <h1 *ngIf="isLogged$">
+            Сподели с нас твоята любима рецепта!
+        </h1>
+        <p class="for-logged-in" *ngIf="isLogged$">
+            <span>ВашитеРецепти.Bg</span> - сайт споделяне на изпорбвани рецепти
+        </p>
+        <p class="for-guests" *ngIf="!isLogged$">
+            <span>ВашитеРецепти.Bg</span> - сайт споделяне на изпорбвани рецепти
+        </p>
+        <div class="buttons" *ngIf="!isLogged$">
+            <a routerLink="/user/login" class="button">Вход</a>
+            <a routerLink="/user/register" class="button">Регистрация</a>
+        </div>
+    </div>
+    <div *ngIf="isLogged$">
+        <p class="caption-for-logged-in">Добре дошъл в своя профил, {{currentUser.username}}!</p>
+        <div class="for-sharing-button"><a href="" class="button">Сподели рецепта</a></div>
+    </div>
+    <div>
+        <div class="recipes-for-guest-page">
+            <p class="caption-for-guests">Топ 5 рецепти за деня:</p>
+            <app-recipe-item *ngFor="let recipe of recipeList" [recipe]="recipe"></app-recipe-item>
+        </div>
+        <div class="options-for-login-or-register" *ngIf="!isLogged$">
+            <p>За повече възможности в търсенето на рецепти <a routerLink="/user/login">влез</a> в профила си или ако
+                все още нямаш такъв се <a routerLink="/user/login">регистрай</a>!</p>
+        </div>
+    </div>

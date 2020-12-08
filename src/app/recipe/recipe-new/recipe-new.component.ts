@@ -19,6 +19,8 @@ export class RecipeNewComponent implements OnInit {
 
   submitHandler(data: any): void {
     data.createdAt = new Date().toString()
+    data.ingredients = data.ingredients.trim().split(',')
+    console.log(data.ingredients)
     console.log(data)
     this.themeService.saveRecipe(data)
       .subscribe({
@@ -30,5 +32,7 @@ export class RecipeNewComponent implements OnInit {
         }
       });
   }
+
+  
 
 }

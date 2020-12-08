@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IRecipe } from 'src/app/shared/interfaces';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -7,7 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  constructor() { }
+  recipe: IRecipe = null;
+
+  constructor(
+    themeService: RecipeService,
+    activatedRoute: ActivatedRoute
+  ) {
+    const id = activatedRoute.snapshot.params.id;
+    themeService.loadRecipe(id).subscribe(recipe => {
+      this.recipe = recipe;
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -1,50 +1,49 @@
-  
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, tap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces';
+import { catchError, tap } from 'rxjs/operators';
+
+const apiUrl = environment.apiUrl;
 
 @Injectable()
 export class AuthService {
 
-  private _currentUser: BehaviorSubject<IUser | null> = new BehaviorSubject(undefined);
-  currentUser$ = this._currentUser.asObservable();
-  isLogged$ = this.currentUser$.pipe(map(user => !!user));
-  isReady$ = this.currentUser$.pipe(map(user => user !== undefined));
+  currentUser: IUser | null;
+
+  get isLogged$(): boolean {  return !!this.currentUser; }
 
   constructor(private http: HttpClient) { }
 
-  updateCurrentUser(user: IUser | null): void {
-    this._currentUser.next(user);
+  getCurrentUserProfile(): Observable<any> {
+    return this.http.get(`${apiUrl}/users/profile`, { withCredentials: true }).pipe(
+      tap(((user: IUser) => this.currentUser = user)),
+      catchError(() => { this.currentUser = null; return of(null); })
+    );
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`/login`, data).pipe(
-      tap((user: IUser) => this._currentUser.next(user))
+    return this.http.post(`${apiUrl}/users/login`, data, { withCredentials: true }).pipe(
+      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);})
     );
   }
 
   register(data: any): Observable<any> {
-    return this.http.post(`/register`, data).pipe(
-      tap((user: IUser) => this._currentUser.next(user))
+    return this.http.post(`${apiUrl}/users/register`, data, { withCredentials: true }).pipe(
+      tap((user: IUser) => this.currentUser = user)
     );
   }
 
   logout(): Observable<any> {
-    return this.http.post(`/logout`, {}).pipe(
-      tap((user: IUser) => this._currentUser.next(null))
+    return this.http.post(`${apiUrl}/users/logout`, {}, { withCredentials: true }).pipe(
+      tap(() => this.currentUser = null)
     );
   }
 
-  authenticate(): Observable<any> {
-    return this.http.get(`/users/profile`).pipe(
-      tap((user: IUser) => this._currentUser.next(user)),
-      catchError(() => {
-        this._currentUser.next(null);
-        return [null];
-      })
+  updateProfile(data: any): Observable<IUser> {
+    return this.http.put(`${apiUrl}/users/profile`, data, { withCredentials: true }).pipe(
+      tap((user: IUser) => this.currentUser = user)
     );
   }
 }
