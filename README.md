@@ -1,27 +1,46 @@
 # AngularSpaProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2 and is for the Angular course in SoftUni.
+
+## Getting started
+
+The name of this single page application is vashiterecepti.bg (your recipes).
+"Your recipes" (or in Bulgarian "Вашите рецепти") is has to be a food-focused social network for cooks or just for people who loves cooking. Here everyone will play a part in helping cooks discover and share their recipes.
+
+For now the only one language in the app is Bulgarian.
 
 ## Development server
+To use this app you have to run this code from the app location:
+"ng serve --open". and to download this REST API for client-server:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+"https://github.com/viktorkombov/rest-api-for-angular-project"
 
-## Code scaffolding
+You can start the server with this code: "npm i AND npm start"
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Home page for guests
 
-## Build
+Initially, you will see the home page for guests.
+Here you have to choose to stay unlogged or to login and to have access to all contain of the application, with the functionality for login and register.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Logged in users
 
-## Running unit tests
+The application provides to users with the functionality to view all the recipes which are in the database, to share recipes, to view recipe details page and to like recipes or to edit or delete these which are created by them.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The Web page comunicate to a remote service via REST-api client-server.
 
-## Running end-to-end tests
+There is autentication, authorization, error handling and data validation for avoiding crashes when invalid data is entered.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Source code
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The whole client-side part of the app is made with Angular.
+
+The code is separated to modules, components, services, pipes, directives, interfaces, interceptors.
+
+In the code you also can see observables and Angular template and reactive forms.
+
+
+I will push more info to this readme.md and also will try to deploy my project and to use file storage to get more bonus points.
+
+
+#####
