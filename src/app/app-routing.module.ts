@@ -3,6 +3,7 @@ import { AboutComponent } from './about/about.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchComponent } from './search/search.component';
 import { SearchingToolComponent } from './searching-tool/searching-tool.component';
 
 
@@ -15,6 +16,10 @@ const routes: Routes = [
                 path: '',
                 pathMatch: 'full',
                 redirectTo: '/home'
+            },
+            {
+                path: 'demo',
+                component: SearchComponent
             },
             {
                 path: 'home',

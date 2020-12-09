@@ -13,3 +13,10 @@ export function rePasswordValidatorFactory(targetControl: AbstractControl): Vali
     return areTheSame ? null : { rePasswordValidator: true };
   };
 }
+
+export function linkValidator(control: AbstractControl): ValidationErrors {
+  const value = (control.value as string);
+  if (!value) {return null};
+  const isValidLink = value.slice(0, 5).includes('http') || value.slice(0, 5).includes('https');
+  return isValidLink ? null : {emailValidator: true};
+}

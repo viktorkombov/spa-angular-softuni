@@ -3,12 +3,26 @@ font-family: 'PT sans', sans-serif;">
     <nav>
         <p><a routerLink="/home">ВашитеРецепти.BG</a></p>
         <ul>
-            <li class="forSearch" style="display: inline-flex;
+            <!-- <li class="forSearch" style="display: inline-flex;
             margin-right: 0px;">
                 <input type="text" placeholder="Търси...">
                 <img id="search"
                     src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt="">
-            </li>
+            </li> -->
+
+            <!-- search -->
+
+            <!-- <li class="forSearch" style="display: inline-flex;
+            margin-right: 0px;">
+                <div class="dropdown">
+                    <input type="text" placeholder="Търси...">
+                    <div class="dropdown-content" *ngFor="let match of matches">
+                        <p>{{match}}</p>
+                    </div>
+                </div>
+                <img id="search"
+                    src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt="">
+            </li> -->
             <li>
                 <a routerLink="/home">Начало</a>
             </li>

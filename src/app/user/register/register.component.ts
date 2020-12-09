@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
-import { rePasswordValidatorFactory } from 'src/app/shared/validators';
+import { linkValidator, rePasswordValidatorFactory } from 'src/app/shared/validators';
 import { UserService } from '../user.service';
 
 @Component({
@@ -19,12 +19,14 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) {
-    const passwordControl = this.fb.control('', [Validators.required, Validators.minLength(4)]);
+    const passwordControl = this.fb.control('', [Validators.required, Validators.minLength(5)]);
+    const profilePic = this.fb.control(['', Validators.required, Validators.minLength(5)])
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
       name: ['', Validators.required],
       surname: ['', Validators.required],
       password: passwordControl,
+      profilePicture: ['', Validators.required, linkValidator(profilePic)],
       rePassword: ['', [Validators.required, Validators.minLength(5), rePasswordValidatorFactory(passwordControl)]]
     });
   }

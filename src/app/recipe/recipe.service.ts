@@ -29,7 +29,7 @@ export class RecipeService {
   }
 
   deleteRecipe(id: string): Observable<any> {
-    return this.http.delete(`http://localhost:3000/api/recipes/delete/${id}`, {withCredentials: true});
+    return this.http.post<IRecipe>(`http://localhost:3000/api/recipes/delete/${id}`, {}, {withCredentials: true});
   }  
 
   editRecipe(id: string, data): Observable<IRecipe> {

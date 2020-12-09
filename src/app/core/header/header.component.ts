@@ -14,12 +14,12 @@ export class HeaderComponent implements OnDestroy {
   get isLogged$(): boolean {
     return this.authService.isLogged$;
   }
-
+  
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
-
+  
   logoutHandler(): void {
     this.authService.logout().subscribe(() => this.router.navigate(['/']));
   }

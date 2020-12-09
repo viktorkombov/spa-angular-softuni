@@ -39,13 +39,12 @@ export class RecipeEditComponent implements OnInit {
   }
 
   submitHandler(data: any): void {
-    data.creator = this.creator;
-    data.createdAt = new Date().toLocaleDateString()
-    data.ingredients = data.ingredients.trim().split(',')
-    this.recipeService.saveRecipe(data)
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log(data.ingredients)
+    this.recipeService.editRecipe(id, data)
       .subscribe({
         next: () => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/recipe', 'details', id]);
         },
         error: (err) => {
           console.error(err.message)
