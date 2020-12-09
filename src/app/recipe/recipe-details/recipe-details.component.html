@@ -46,7 +46,7 @@
             </div>
             </div>
             <div class="my-own-recipe" *ngIf="isCreator">
-                <a class="button">Редактирай</a> <a class="button">Изтрий</a>
+                <a class="button" (click)="editRecipe()">Редактирай</a> <a class="button" (click)="deleteRecipe()">Изтрий</a>
                 <p>{{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'потребител харесва': 'потребители харесват'}} твоята рецепта.</p>
             </div>
         </div>

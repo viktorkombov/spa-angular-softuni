@@ -12,7 +12,7 @@ export class RecipeNewComponent implements OnInit {
 
   creator: string;
   constructor(
-    private themeService: RecipeService,
+    private recipeService: RecipeService,
     private router: Router,
     private authService: AuthService
   ) { }
@@ -27,7 +27,7 @@ export class RecipeNewComponent implements OnInit {
     data.ingredients = data.ingredients.trim().split(',')
     console.log(data.ingredients)
     console.log(data)
-    this.themeService.saveRecipe(data)
+    this.recipeService.saveRecipe(data)
       .subscribe({
         next: () => {
           this.router.navigate(['/home']);

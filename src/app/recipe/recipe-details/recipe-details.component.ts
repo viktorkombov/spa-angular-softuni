@@ -25,6 +25,8 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
+
+
   get isLogged(): boolean {
     return !!this.authService.currentUser;
   }
@@ -41,17 +43,21 @@ export class RecipeDetailsComponent implements OnInit {
   likeRecipe(): void {
     const id = this.activatedRoute.snapshot.params.id;
     this.recipeService.likeRecipe(id).subscribe(() => {
-      this.router.navigate([`/recipe/details/${id}`])}
+      this.router.navigate([`/recipe/details/${id}`])
+    }
     );
   }
 
-  getEditRecipe(): void {
+  editRecipe(): void {
     const id = this.activatedRoute.snapshot.params.id;
-    this.recipeService.getEditRecipe(id).subscribe((recipe) => {
-      this.recipe = recipe;
-      this.router.navigate([`/recipe/edit/:${id}`]);
-    }
-    );
+    this.router.navigate([`/recipe/edit/${id}`]);
+  }
+
+  deleteRecipe(): void {
+    const id = this.activatedRoute.snapshot.params.id;
+    this.recipeService.deleteRecipe(id).subscribe(() => {
+      this.router.navigate(['/home'])
+    })
   }
 
   ngOnInit(): void {

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IRecipe, IUser } from '../shared/interfaces';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import {tap, catchError} from 'rxjs/operators'
 
 @Injectable()
 export class RecipeService {
-
+  recipe: IRecipe | null
   constructor(private http: HttpClient) { }
 
   loadRecipeList(): Observable<IRecipe[]> {
@@ -13,7 +14,10 @@ export class RecipeService {
   }
 
   loadRecipe(id: string): Observable<IRecipe<IUser>> {
-    return this.http.get<IRecipe>(`http://localhost:3000/api/recipes/${id}`);
+    return this.http.get<IRecipe>(`http://localhost:3000/api/recipes/${id}`).pipe(
+      tap(((recipe: IRecipe) => this.recipe = recipe)),
+      catchError(() => { this.recipe = null; return of(null); })
+    )
   }
 
   saveRecipe(data: any): Observable<IRecipe<IUser>> {
@@ -26,13 +30,9 @@ export class RecipeService {
 
   deleteRecipe(id: string): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/recipes/delete/${id}`, {withCredentials: true});
-  }
-
-  getEditRecipe(id: string): Observable<IRecipe> {
-    return this.http.post<IRecipe>(`http://localhost:3000/api/recipes/edit/${id}`, {withCredentials: true});
   }  
 
-  postEditRecipe(id: string, data): Observable<IRecipe> {
+  editRecipe(id: string, data): Observable<IRecipe> {
     return this.http.post<IRecipe>(`http://localhost:3000/api/recipes/edit/${id}`, data, {withCredentials: true});
   }
 }

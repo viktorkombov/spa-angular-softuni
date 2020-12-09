@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 import { IRecipe } from 'src/app/shared/interfaces';
 import { RecipeDetailsComponent } from '../recipe-details/recipe-details.component';
@@ -12,34 +13,36 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeEditComponent implements OnInit {
 
+  @Input() recipeName: string;
+  @Input() ingredients: string;
   recipe: IRecipe;
+  currentUserId: string;
   creator: string;
-  selectedDifficultyLevel: string;
-  selectedNecesseryTime: string;
-  selectedCategory: string;
+  
   constructor(
-    private themeService: RecipeService,
-    private router: Router,
+    private recipeService: RecipeService,
+    private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    private recipeDetailsComponent: RecipeDetailsComponent,
+    private router: Router,
+    private fb: FormBuilder,
   ) {
-    this.recipe = recipeDetailsComponent.recipe;
+    const id = activatedRoute.snapshot.params.id;
+    recipeService.loadRecipe(id).subscribe(recipe => {
+      this.recipe = recipe;
+    });
   }
 
+
   ngOnInit(): void {
-    this.creator = this.authService.currentUser.username;
-    this.selectedCategory = this.recipe.category;
-    this.selectedDifficultyLevel = this.recipe.difficultyLevel;
-    this.selectedNecesseryTime = this.recipe.necesseryTime;
+    this.recipe = this.recipe;
+    this.creator = this.recipe.creator;
   }
 
   submitHandler(data: any): void {
     data.creator = this.creator;
     data.createdAt = new Date().toLocaleDateString()
     data.ingredients = data.ingredients.trim().split(',')
-    console.log(data.ingredients)
-    console.log(data)
-    this.themeService.saveRecipe(data)
+    this.recipeService.saveRecipe(data)
       .subscribe({
         next: () => {
           this.router.navigate(['/home']);
