@@ -11,7 +11,9 @@ For now the only one language in the app is Bulgarian.
 
 ## Development server
 To use this app you have to run this code from the app location:
-"ng serve --open". and to download this REST API for client-server: *****
+"ng serve --open". and to download this REST API for client-server:
+
+"https://github.com/viktorkombov/rest-api-for-angular-project"
 
 You can start the server with this code: "npm i AND npm start"
 
