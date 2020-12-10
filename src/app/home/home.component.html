@@ -19,7 +19,7 @@
     </div>
     <div *ngIf="isLogged$">
         <p class="caption-for-logged-in">Добре дошъл в своя профил, {{currentUser.username}}!</p>
-        <div class="for-sharing-button"><a href="" class="button">Сподели рецепта</a></div>
+        <div class="for-sharing-button"><a routerLink="/recipe/new" class="button">Сподели рецепта</a></div>
     </div>
     <div>
         <div class="recipes-for-guest-page">

@@ -4,6 +4,11 @@
     text-align: center;
 }
 
+.new-recipe h2 {
+    color: darkolivegreen;
+}
+
+
 .new-recipe fieldset {
     border: none;
 }

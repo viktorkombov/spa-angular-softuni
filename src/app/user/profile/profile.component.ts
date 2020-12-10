@@ -11,14 +11,20 @@ import { IRecipe } from 'src/app/shared/interfaces';
 export class ProfileComponent implements OnInit {
 
   recipeList: IRecipe[];
+  myRecipes: IRecipe[] = [];
   public currentUser;
   constructor(private recipeService: RecipeService, public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.recipeService.loadRecipeList().subscribe(recipeList => {
-      this.recipeList = recipeList;
-    });
     this.currentUser = this.authService.currentUser;
+    this.recipeService.loadRecipeList().subscribe(recipeList => {
+      recipeList.forEach((recipe) => {
+        if (recipe.userId._id.toString() === this.currentUser._id.toString()) {
+          this.myRecipes.push(recipe)
+        }
+      })
+    });
+    console.log(this.myRecipes)
   }
 
 }
