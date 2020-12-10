@@ -31,18 +31,20 @@
     </div>
     <div class="likes">
         <div class="unregistered-users" *ngIf="!isLogged">
-            <p>Рецептата има 3 харесвания.</p>
-            <p>За да харесаш и ти, <a href="">влез</a> в профила си, или ако нямаш такъв, се <a
-                    href="#">регистрирай</a>.</p>
+            <p>Рецептата има {{recipe.likedBy.length}} харесвания.</p>
+            <p>За да харесаш и ти, <a routerLink="/user/login">влез</a> в профила си, или ако нямаш такъв, се <a
+                routerLink="/user/register">регистрирай</a>.</p>
         </div>
-        <div class="registered-users" *ngIf="isLogged">
+        <app-loader *ngIf="isLoading"></app-loader>
+        <div class="registered-users" *ngIf="isLogged && !isLoading">
             <div *ngIf="!isCreator">
             <div class="not-liked" *ngIf="!isLiked">
                 <p><a (click)="likeRecipe()" class="button">Харесай</a></p>
                 <p>Рецептата има {{recipe.likedBy.length}} харесвания.</p>
             </div>
             <div class="liked" *ngIf="isLiked">
-                <p>Ти и още {{recipe.likedBy.length - 1}} потребители харесахте тази рецепта.</p>
+                <p *ngIf='recipe.likedBy.length === 1'>Ти си първият харесал тази рецепта!</p>
+                <p *ngIf="recipe.likedBy.length > 1">Ти и още {{recipe.likedBy.length - 1}} {{recipe.likedBy.length > 2 ? 'потребители': 'потребител'}}харесахте тази рецепта.</p>
             </div>
             </div>
             <div class="my-own-recipe" *ngIf="isCreator">

@@ -11,6 +11,7 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
+  isLoading: boolean = false;
   recipe: IRecipe;
   currentUserId: string;
   constructor(
@@ -42,8 +43,10 @@ export class RecipeDetailsComponent implements OnInit {
 
   likeRecipe(): void {
     const id = this.activatedRoute.snapshot.params.id;
-    this.recipeService.likeRecipe(id).subscribe(() => {
-      this.router.navigate([`/recipe/details/${id}`])
+    this.isLoading = true;
+    this.recipeService.likeRecipe(id).subscribe((data) => {
+      this.recipe = data;
+      this.isLoading = false;
     }
     );
   }
