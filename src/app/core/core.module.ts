@@ -21,7 +21,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
     // appInterceptorProvider
   ]
 })

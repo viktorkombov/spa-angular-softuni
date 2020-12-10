@@ -17,19 +17,17 @@
 
         <p>
             <label for="passowrd">Парола:</label>
-            <input #password="ngModel" [class.input-error]="password.touched && !!password.errors"
-                type="password" name="password" id="password" placeholder="******" ngModel required minlength="4">
+            <input #password="ngModel" [class.input-error]="password.touched && !!password.errors" type="password"
+                name="password" id="password" placeholder="******" ngModel required minlength="4">
         </p>
         <p *ngIf="password.touched && password.errors?.required" class="error">
             Полето "Парола" е задължително!
         </p>
-        <p *ngIf="password.touched && password.errors?.minlength" class="error">
-            Паролата трябва да съдържа поне 5 символа!
-        </p>
-        <p *ngIf="password.touched && password.errors?.loginErr" class="error">
+        <p *ngIf="errorMessage" class="error">
             Потребителското име или паролата са грешни!
         </p>
 
-        <button [disabled]="f.invalid">Вход</button>
+        <button [disabled]="isLoading || f.invalid">Login</button>
+        <app-loader [isLoading]="isLoading"></app-loader>
     </fieldset>
 </form>

@@ -26,8 +26,7 @@ export class AuthService {
 
   login(data: any): Observable<any> {
     return this.http.post(`${apiUrl}/users/login`, data, { withCredentials: true }).pipe(
-      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);}),
-      catchError((err) => {this.loginErr = true; console.log(err); return of(null)})
+      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);})
     );
   }
 

@@ -13,22 +13,32 @@
     border: none;
 }
 
-.new-recipe p {
+.new-recipe .comas-for-ingredients {
     margin: 0;
     font-size: 13px;
     padding-bottom: 5px;
     color: darkred;
 }
 
-.new-recipe select {
-    width: 200px;
+select.input-error {
+    outline: none;
+    border: 2px solid  red;
+    box-shadow: 0 0 10px red;
+    color: black;
+    border-radius: 5px;
+    height: 27px;
+    width: 250px;
+}
+
+.new-recipe .select {
+    width: 250px;
     border: 2px solid #97A92B;
     border-radius: 5px;
-    height: 23px;
+    height: 27px;
     color: black;
 }
 
-.new-recipe select::selection {
+.new-recipe .select::selection {
     text-align: center;
 }
 
@@ -53,20 +63,11 @@
 
 .new-recipe textarea {
     height: 230px;
+    border: solid 2px #97A92B;
+    padding: 5px;
 }
 
-.new-recipe input[type='number'] {
-    border: solid 2px rgb(140, 165, 71);
-    border-radius: 5px;
-    height: 20px;
-    padding-left: 5px;
-    outline: none;
+.new-recipe textarea.input-error {
+    border: solid 2px red;
+    box-shadow: 0 0 10px red;
 }
-
-.new-recipe input[type='number']:focus {
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-    color: black;
-}
-

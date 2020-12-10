@@ -1,5 +1,5 @@
 .login-form-caption {
-    color: darkolivegreen;
+    color: #97A92B;
     text-align: center;
     margin-top: 0px;
     padding-top: 130px;
@@ -7,7 +7,7 @@
 
 .login-form {
     background: rgb(250, 246, 246);
-    color:darkolivegreen;
+    color: #97A92B;
     margin: 0;
 }
 
@@ -20,4 +20,9 @@
 
 .login-form input {
     margin-top: 5px;
+}
+
+.loader {
+    color: #97A92B;
+    text-align: center;
 }

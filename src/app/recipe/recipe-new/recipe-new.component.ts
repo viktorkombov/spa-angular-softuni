@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
+import { linkValidator } from 'src/app/shared/validators';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -10,18 +12,32 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeNewComponent implements OnInit {
 
+  form: FormGroup;
   creator: string;
   constructor(
     private recipeService: RecipeService,
-    private router: Router,
-    private authService: AuthService
-  ) { }
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.form = this.fb.group({
+      recipeName: ['', Validators.required],
+      necesseryTime: ['', Validators.required],
+      difficultyLevel: ['', Validators.required],
+      ingredients: ['', Validators.required],
+      quantity: ['', Validators.required],
+      category: ['', Validators.required],
+      imageUrl: ['', [Validators.required, linkValidator]],
+      recipeContent: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
     this.creator = this.authService.currentUser.username;
   }
 
-  submitHandler(data: any): void {
+  submitHandler(): void {
+    const data = this.form.value;
     data.creator = this.creator;
     data.createdAt = new Date().toLocaleDateString()
     data.ingredients = data.ingredients.trim().split(',')
