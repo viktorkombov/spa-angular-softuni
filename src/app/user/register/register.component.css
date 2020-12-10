@@ -22,12 +22,5 @@
     margin-top: 5px;
 }
 
-p.error {
-    border-radius: 0.3em;
-    color: red;
-    padding-top: 0;
-  }
 
-.input-error {
-    border-left: 0.3em solid red;
-  }
+

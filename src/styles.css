@@ -51,7 +51,18 @@ input:focus {
     box-shadow: 0 0 10px #9ecaed;
     color: black;
 }
+input.input-error {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 10px red;
+    color: black;
+}
 
+p.error {
+    border-radius: 0.3em;
+    color: red;
+    padding-top: 0;
+  }
 .button, button {
     border: solid;
     border-width: 1px;

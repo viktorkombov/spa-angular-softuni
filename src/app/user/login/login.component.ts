@@ -9,13 +9,14 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  isLoading = false;
+  
   errorMessage = '';
-
+  loginErr: boolean;
   constructor(
-    private userService: AuthService,
-    private router: Router
-  ) { }
+    private authService: AuthService,
+    private router: Router,
+    
+  ) { this.loginErr = this.authService.loginErr}
 
   ngOnInit(): void {
   }
@@ -26,17 +27,19 @@ export class LoginComponent implements OnInit {
 
   submitFormHandler(formValue: { username: string, password: string }): void {
     console.log(formValue)
-    this.isLoading = true;
     this.errorMessage = '';
-    this.userService.login(formValue).subscribe(
+    this.authService.login(formValue).subscribe(
       {
         next: (data) => {
-          this.isLoading = false;
-          this.router.navigate(['/']);
+          try {
+            if (this.loginErr) {this.loginErr = false; throw new Error()}
+            this.router.navigate(['/']);
+          } catch (err) {
+            this.errorMessage = 'Потребителското име или паролата са грешни!';
+          }
         },
         error: (err) => {
-          this.errorMessage = err.error.message;
-          this.isLoading = false;
+          this.errorMessage = 'Потребителското име или паролата са грешни!';
         }
       }
     );

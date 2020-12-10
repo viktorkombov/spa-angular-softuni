@@ -11,8 +11,9 @@ const apiUrl = environment.apiUrl;
 export class AuthService {
 
   currentUser: IUser | null;
-
+  loginErr: boolean = false;
   get isLogged$(): boolean {  return !!this.currentUser; }
+  
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +26,8 @@ export class AuthService {
 
   login(data: any): Observable<any> {
     return this.http.post(`${apiUrl}/users/login`, data, { withCredentials: true }).pipe(
-      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);})
+      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);}),
+      catchError((err) => {this.loginErr = true; console.log(err); return of(null)})
     );
   }
 

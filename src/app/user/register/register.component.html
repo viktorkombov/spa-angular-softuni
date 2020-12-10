@@ -5,25 +5,30 @@
         <p>
             <label for="name">Потребителско име:</label>
             <input [class.input-error]="form.get('username').touched && !!form.get('username').errors" type="text"
-                name="name"  placeholder="Потребителско име..." formControlName="username">
+                name="name" placeholder="Потребителско име..." formControlName="username">
         </p>
 
         <p *ngIf="form.get('username').touched && form.get('username').errors?.required" class="error">
-            Username is required!
+            Попълването на поле "Потребителско име" е задължително!
         </p>
         <p *ngIf="form.get('username').touched && form.get('username').errors?.minlength" class="error">
-            Username must be at least 5 characters!
+            Потребителското име трябва да съдържа поне 5 символа!
         </p>
+
+        <p *ngIf="form.get('username').touched && form.get('username').errors?.usernameValidator" class="error">
+            Потребителското име трябва да съдържа само букви от латинската азбука или цифри!
+        </p>
+
 
         <!-- name -->
         <p>
             <label for="name">Име:</label>
-            <input [class.input-error]="form.get('name').touched && !!form.get('name').errors" type="text"
-                name="name"  placeholder="Име..." formControlName="name">
+            <input [class.input-error]="form.get('name').touched && !!form.get('name').errors" type="text" name="name"
+                placeholder="Име..." formControlName="name">
         </p>
 
         <p *ngIf="form.get('name').touched && form.get('name').errors?.required" class="error">
-            Name is required!
+            Попълването на поле "Име" е задължително!
         </p>
 
         <!-- surname -->
@@ -34,22 +39,25 @@
         </p>
 
         <p *ngIf="form.get('surname').touched && form.get('surname').errors?.required" class="error">
-            Surname is required!
+            Попълването на поле "Фамилия" е задължително!
         </p>
 
         <!-- profile-picture -->
         <p>
-            <label for="profilePicutre">Фамилия:</label>
-            <input [class.input-error]="form.get('profilePicutre').touched && !!form.get('profilePicutre').errors" type="text"
-                name="profilePicutre" id="profilePicutre" placeholder="Постави линк към тоята снимка..." formControlName="profilePicture">
+            <label for="profilePicture">Линк за профилна снимка:</label>
+            <input [class.input-error]="form.get('profilePicture').touched && !!form.get('profilePicture').errors"
+                type="text" name="profilePicture" id="profilePicture" placeholder="Постави линк към тоята снимка..."
+                formControlName="profilePicture">
         </p>
 
-        <p *ngIf="form.get('profilePicutre').touched && form.get('profilePicutre').errors?.required" class="error">
-            Surname is required!
+        <p *ngIf="form.get('profilePicture').touched && form.get('profilePicture').errors?.required" class="error">
+            Попълването на поле "Линк за профила снимка" е задължително!
         </p>
 
-        <p *ngIf="form.get('profilePicutre').touched && form.get('profilePicutre').errors?.linValidation" class="error">
-            Your link must contain http or https!</p>
+        <p *ngIf="form.get('profilePicture').touched && form.get('profilePicture').errors?.linkValidator" class="error">
+            Твоят линк трябва а съдържа "http" или "https"!
+        </p>
+
 
         <!-- password -->
         <p>
@@ -58,10 +66,10 @@
                 name="password" id="password" placeholder="******" formControlName="password"> </p>
 
         <p *ngIf="form.get('password').touched && form.get('password').errors?.required" class="error">
-            Password is required!
+            Попълването на поле "Парола" е задължително!
         </p>
         <p *ngIf="form.get('password').touched && form.get('password').errors?.minlength" class="error">
-            Password must be at least 5 characters!
+            Паролата трябва да съдържа поне 5 символа!
         </p>
 
         <!-- repeatpassword -->
@@ -72,10 +80,10 @@
         </p>
 
         <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.required" class="error">Repeat
-            Repeat Password is required!</p>
+            Попълването на поле "Повтори паролата" е задължително!</p>
         <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.rePasswordValidator" class="error">
-            Repeat Password does not match password!</p>
+            Паролите не съвпадат!</p>
 
-            <button [disabled]="form.invalid">Регистрирай се!</button>
+        <button [disabled]="form.invalid">Регистрирай се!</button>
     </fieldset>
 </form>

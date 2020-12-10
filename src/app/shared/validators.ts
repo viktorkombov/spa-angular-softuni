@@ -14,9 +14,16 @@ export function rePasswordValidatorFactory(targetControl: AbstractControl): Vali
   };
 }
 
-export function linkValidator(control: AbstractControl): ValidationErrors {
+export function linkValidator(control: AbstractControl): ValidationErrors | null {
   const value = (control.value as string);
-  if (!value) {return null};
-  const isValidLink = value.slice(0, 5).includes('http') || value.slice(0, 5).includes('https');
-  return isValidLink ? null : {emailValidator: true};
+  if (!value) { return null; }
+  const isValidLink = value.slice(0, 5).includes('http');
+  return isValidLink ? null : { linkValidator: true };
+}
+
+export function usernameValidator(control: AbstractControl): ValidationErrors | null {
+  const value = (control.value as string);
+  if (!value) { return null; }
+  const isValidUsername = /[a-zA-Z0-9]+/g.test(value);
+  return isValidUsername ? null : { usernameValidator: true };
 }

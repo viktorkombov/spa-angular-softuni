@@ -3,12 +3,33 @@
     <fieldset>
         <p>
             <label for="name">Потребителско име:</label>
-            <input #username="ngModel" type="text" name="username" placeholder="Потребителско име..." ngModel required>
+            <input #username="ngModel" type="text" [class.input-error]="username.touched && !!username.errors "
+                name="username" placeholder="Потребителско име..." ngModel required ngModel appSubmitOnValid
+                (ngModelChangeIfValid)="changeHandler($event)" required appUsernameValidator>
         </p>
+
+        <p *ngIf="username.touched && username.errors?.required" class="error">
+            Попълването на поле "Потребителско име" е задължително!
+        </p>
+        <p *ngIf="username.touched && username.errors?.usernameValidator" class="error">
+            Потребителското име трябва да съдържа само латински букви и цифри!
+        </p>
+
         <p>
             <label for="passowrd">Парола:</label>
-            <input #password="ngModel" type="text" name="password" placeholder="******" ngModel required>
+            <input #password="ngModel" [class.input-error]="password.touched && !!password.errors"
+                type="password" name="password" id="password" placeholder="******" ngModel required minlength="4">
         </p>
-        <button>Вход!</button>
+        <p *ngIf="password.touched && password.errors?.required" class="error">
+            Полето "Парола" е задължително!
+        </p>
+        <p *ngIf="password.touched && password.errors?.minlength" class="error">
+            Паролата трябва да съдържа поне 5 символа!
+        </p>
+        <p *ngIf="password.touched && password.errors?.loginErr" class="error">
+            Потребителското име или паролата са грешни!
+        </p>
+
+        <button [disabled]="f.invalid">Вход</button>
     </fieldset>
 </form>
