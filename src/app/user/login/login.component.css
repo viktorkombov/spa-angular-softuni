@@ -14,7 +14,7 @@
 .login-form fieldset {
     margin-top: 0px;
     text-align: center;
-    padding: 10px 0px 180px;
+    padding: 10px 0px 90px;
     border: none;
 }
 
@@ -25,4 +25,18 @@
 .loader {
     color: #97A92B;
     text-align: center;
+}
+
+.login-form a {
+    color: brown;
+    font-weight: bold;
+}
+
+.login-form a:hover {
+    color: darkblue;
+    cursor: pointer;
+}
+
+.p-for-register {
+    margin-top: 80px;
 }

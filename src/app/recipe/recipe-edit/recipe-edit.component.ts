@@ -49,7 +49,6 @@ export class RecipeEditComponent implements OnInit {
   submitHandler(): void {
     const data = this.form.value;
     const id = this.activatedRoute.snapshot.params.id;
-    console.log(data.ingredients)
     this.recipeService.editRecipe(id, data)
       .subscribe({
         next: () => {

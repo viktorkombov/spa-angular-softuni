@@ -28,6 +28,8 @@
         </p>
 
         <button [disabled]="isLoading || f.invalid">Login</button>
+
+        <p class="p-for-register">Ако все още не си го направил, се <a routerLink="/user/register">регистрирай</a>!</p>
         <app-loader [isLoading]="isLoading"></app-loader>
     </fieldset>
 </form>

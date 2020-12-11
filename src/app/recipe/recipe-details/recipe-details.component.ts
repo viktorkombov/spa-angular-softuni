@@ -37,7 +37,6 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   get isLiked(): boolean {
-    console.log(!!this.recipe.likedBy.find(x => x.toString() === this.authService.currentUser?._id.toString()))
     return !!this.recipe.likedBy.find(x => x.toString() === this.authService.currentUser?._id.toString())
   }
 

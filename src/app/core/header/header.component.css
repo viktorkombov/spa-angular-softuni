@@ -16,7 +16,7 @@ nav {
 }
 
 
-nav p {
+nav .appName {
   font-family: 'Pattaya';
   display: inline-block;
   margin: 10px;
@@ -49,9 +49,10 @@ nav a {
   display: inline-flex;
   margin-right: 0px;
 }
-nav ul li img {
+nav ul li #search {
   width: 25px;
   height: 25px;
+  float: right;
 }
 
 nav ul li img:hover {
@@ -66,7 +67,7 @@ nav a:hover {
   color: darkblue;
   cursor: pointer;
   text-decoration: none;
-  text-shadow: 0 0 1px darkblue;
+  text-shadow: 0 0 0.5px darkblue;
 }
 
 nav input {
@@ -75,6 +76,7 @@ nav input {
   height: 20px;
   margin-bottom: 0;
   margin-top: 0px;
+  height: 25px;
 }
 
 nav input[type='text'] { font-size: 16px; height: 21px; }
@@ -86,15 +88,56 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
 
 .dropdown-content {
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:focus-within .dropdown-content {
   display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 350px;
+  border-radius: 2%;
+  /* z-index: 1; */
 }
+
+.search-result:hover {
+  background:  #6B8C25;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 0px 10px black;
+}
+
  
+.search-result {
+  border-bottom: black 1px solid;
+  height: 140px;
+}
+
+.search-result div {
+  width: 230px;
+  float: left;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+.search-result-img {
+  margin-top: 16px;
+  margin-right: 23px;
+  width: 90px;
+  height: 110px;
+  float: right;
+  border: solid 1px rgb(9, 56, 9);
+}
+
+.search-result p {
+  padding-left: 10px;
+}
+
+.search-result .recipe-name {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-weight: 600;
+}
+
+.search-result .recipe-content {
+  margin-top: 0;
+  margin-bottom: 0;
+}

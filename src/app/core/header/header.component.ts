@@ -1,5 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { RecipeService } from 'src/app/recipe/recipe.service';
+import { IRecipe } from 'src/app/shared/interfaces';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -14,11 +16,26 @@ export class HeaderComponent implements OnDestroy {
   get isLogged$(): boolean {
     return this.authService.isLogged$;
   }
-  
+
+  recipeList: IRecipe[];
+  isLoading = false;
   constructor(
     private authService: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private recipeService: RecipeService
+  ) { this.recipeService.loadRecipeList().subscribe(recipeList => {
+    this.recipeList = recipeList;
+  });}
+  searchText = '';
+  
+  navigateToRecipe(recipeId): void {
+    console.log(recipeId)
+    this.router.navigate(['recipe', 'details', recipeId])
+  }
+
+  submitFormHandler(data: any) {
+    
+  }
   
   logoutHandler(): void {
     this.authService.logout().subscribe(() => this.router.navigate(['/']));

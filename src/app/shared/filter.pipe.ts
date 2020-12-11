@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { IRecipe } from './interfaces';
 
 @Pipe({ name: 'appFilter' })
 export class FilterPipe implements PipeTransform {
@@ -9,17 +10,20 @@ export class FilterPipe implements PipeTransform {
    * @param {string} searchText
    * @returns {any[]}
    */
-  transform(items: any[], searchText: string): any[] {
+  transform(items: IRecipe[], searchText: string): any[] {
+    
     if (!items) {
       return [];
     }
     if (!searchText) {
-      return items;
+      return [];
     }
+
+    const newSearch = new RegExp('^' + searchText, 'g')
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+      return newSearch.test(it.recipeName);
     });
   }
 }

@@ -12,7 +12,6 @@ import { RecipeModule } from './recipe/recipe.module';
 import { AboutComponent } from './about/about.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -21,8 +20,7 @@ import { FormsModule } from '@angular/forms';
     NotFoundComponent,
     SearchingToolComponent,
     AboutComponent,
-    HomeComponent,
-    SearchComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

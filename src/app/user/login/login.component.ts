@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   changeHandler(data: any): void {
-    console.log(data);
+    // console.log(data);
   }
 
   submitFormHandler(formValue: { username: string, password: string }): void {

@@ -1,14 +1,36 @@
 <header style="@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 font-family: 'PT sans', sans-serif;">
     <nav>
-        <p><a routerLink="/home">ВашитеРецепти.BG</a></p>
+        <p class="appName"><a routerLink="/home">ВашитеРецепти.BG</a></p>
         <ul>
-            <!-- <li class="forSearch" style="display: inline-flex;
+
+            <li class="forSearch" style="display: inline-flex;
             margin-right: 0px;">
-                <input type="text" placeholder="Търси...">
-                <img id="search"
-                    src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt="">
-            </li> -->
+                <div class="dropdown">
+                    <input #input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+                        [(ngModel)]="searchText" placeholder="Търси..." autofocus
+                        (keydown.enter)="submitFormHandler(input.value)" ngModel required>
+                    <div *ngIf="!isLoading" [class.input-error]="input.touched && !!input.value" class="dropdown-content">
+                        <div *ngFor="let c of recipeList | appFilter: searchText">
+                            <div (change)="navigateToRecipe(c._id)" class="search-result">
+                            <div>
+                                <p class="recipe-name">{{c.recipeName}}</p>
+                                <p class="recipe-content">{{c.recipeContent | shortenText}}</p>
+                            </div>
+                            <img class="search-result-img" src="{{c.imageUrl}}" alt="Снимка на рецептата">
+                        </div>
+                        </div>
+                    </div>
+                    <img id="search"
+                        src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt=""
+                        (click)="submitFormHandler(input.value)">
+                </div>
+            </li>
+
+
+
+
+
 
             <!-- search -->
 
@@ -23,6 +45,7 @@ font-family: 'PT sans', sans-serif;">
                 <img id="search"
                     src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt="">
             </li> -->
+
             <li>
                 <a routerLink="/home">Начало</a>
             </li>
@@ -36,7 +59,7 @@ font-family: 'PT sans', sans-serif;">
                 <a routerLink="/user/login">Вход</a>
             </li>
             <li *ngIf="!isLogged$">
-                <a  routerLink="/user/register">Регистрация</a>
+                <a routerLink="/user/register">Регистрация</a>
             </li>
             <li>
                 <a routerLink="/about">За нас</a>

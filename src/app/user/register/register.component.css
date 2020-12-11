@@ -13,7 +13,7 @@
 
 .register-form fieldset {
     text-align: center;
-    padding: 10px 0px 100px;
+    padding: 10px 0px 60px;
     margin-top: 0px;
     border: none;
 }
@@ -22,5 +22,17 @@
     margin-top: 5px;
 }
 
+.register-form a {
+    color: brown;
+    font-weight: bold;
+}
 
+.register-form a:hover {
+    color: darkblue;
+    cursor: pointer;
+}
+
+.p-for-login {
+    margin-top: 50px;
+}
 

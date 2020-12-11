@@ -41,8 +41,7 @@ export class RecipeNewComponent implements OnInit {
     data.creator = this.creator;
     data.createdAt = new Date().toLocaleDateString()
     data.ingredients = data.ingredients.trim().split(',')
-    console.log(data.ingredients)
-    console.log(data)
+    
     this.recipeService.saveRecipe(data)
       .subscribe({
         next: () => {
