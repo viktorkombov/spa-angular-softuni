@@ -3,13 +3,7 @@ import { IRecipe } from './interfaces';
 
 @Pipe({ name: 'appFilter' })
 export class FilterPipe implements PipeTransform {
-  /**
-   * Transform
-   *
-   * @param {any[]} items
-   * @param {string} searchText
-   * @returns {any[]}
-   */
+ 
   transform(items: IRecipe[], searchText: string): any[] {
     
     if (!items) {
@@ -19,7 +13,7 @@ export class FilterPipe implements PipeTransform {
       return [];
     }
 
-    const newSearch = new RegExp('^' + searchText, 'g')
+    const newSearch = new RegExp(searchText, 'gi')
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {

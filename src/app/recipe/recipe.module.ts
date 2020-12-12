@@ -8,11 +8,12 @@ import { SharedModule } from '../shared/shared.module';
 import { RecipeService } from './recipe.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
+import { RecipeItemForSearchComponent } from './recipe-item-for-search/recipe-item-for-search.component';
 
 
 
 @NgModule({
-  declarations: [RecipeDetailsComponent, RecipeNewComponent, RecipeItemComponent, RecipeEditComponent],
+  declarations: [RecipeDetailsComponent, RecipeNewComponent, RecipeItemComponent, RecipeEditComponent, RecipeItemForSearchComponent],
   imports: [
     CommonModule,
     RecipeRoutingModule,
@@ -25,7 +26,8 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
     RecipeService
   ],
   exports: [
-    RecipeItemComponent
+    RecipeItemComponent,
+    RecipeItemForSearchComponent
   ]
 })
 export class RecipeModule { }

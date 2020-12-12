@@ -22,9 +22,9 @@
         <div class="for-sharing-button"><a routerLink="/recipe/new" class="button">Сподели рецепта</a></div>
     </div>
     <div>
-        <div class="recipes-for-guest-page">
+        <div class="recipe-list">
             <p class="caption-for-guests">Топ 5 рецепти за деня:</p>
-            <app-recipe-item *ngFor="let recipe of recipeList" [recipe]="recipe"></app-recipe-item>
+            <app-recipe-item *ngFor="let recipe of topFiveRecipes" [recipe]="recipe"></app-recipe-item>
         </div>
         <div class="options-for-login-or-register" *ngIf="!isLogged$">
             <p>За повече възможности в сайта <a routerLink="/user/login">влез</a> в профила си или ако

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   
   recipeList: IRecipe[];
+  topFiveRecipes: IRecipe[];
   public currentUser;
   constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) { }
 
@@ -25,6 +26,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.recipeList = recipeList;
     });
     this.currentUser = this.authService.currentUser;
+    this.topFiveRecipes = this.recipeList.sort((a, b) => {
+      if (a.likedBy.length > b.likedBy.length) {
+        console.log(a.likedBy.length)
+        return 1
+      } else if (a.likedBy.length < b.likedBy.length) {
+        return -1
+      } else {
+        return 0
+      }
+    })
   }
 
   ngAfterViewInit(): void {

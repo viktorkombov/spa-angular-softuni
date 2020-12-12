@@ -64,6 +64,10 @@ color: darkolivegreen;
     color: darkblue;
 }
 
+.recipe-list {
+    text-align: center;
+}
+
 .for-logged-in {
     padding-bottom: 80px;
     margin-bottom: 50px;

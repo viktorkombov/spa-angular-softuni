@@ -25,6 +25,10 @@ const routes: Routes = [
                 component: AboutComponent
             },
             {
+                path: 'search/:searchText',
+                component: SearchingToolComponent
+            },
+            {
                 path: '**',
                 component: NotFoundComponent
             },

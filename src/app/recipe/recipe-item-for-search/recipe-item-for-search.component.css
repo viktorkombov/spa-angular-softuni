@@ -9,7 +9,7 @@
     border: solid;
     border-color: #6B8C25;
     border-width: 2px;
-    width: 200px;
+    width: 900px;
     height: auto;
     margin-right: 20px;
     margin-left: 20px;
@@ -17,8 +17,7 @@
 }
 
 .recipe-info p {
-    text-align: center;
-    width: 200;
+    text-align: left;
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 17px;
@@ -42,4 +41,9 @@
     border-width: 2px;
     border-color: darkgreen;
     margin-bottom: 8px;
+    float: right;
+}
+
+.information-about-item {
+    width: 350px;
 }

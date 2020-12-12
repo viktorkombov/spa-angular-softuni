@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 import { IRecipe } from 'src/app/shared/interfaces';
 import { AuthService } from '../auth.service';
@@ -16,27 +16,35 @@ export class HeaderComponent implements OnDestroy {
   get isLogged$(): boolean {
     return this.authService.isLogged$;
   }
-
+  sub: any
   recipeList: IRecipe[];
-  isLoading = false;
+  searchText = '';
   constructor(
     private authService: AuthService,
     private router: Router,
-    private recipeService: RecipeService
-  ) { this.recipeService.loadRecipeList().subscribe(recipeList => {
-    this.recipeList = recipeList;
-  });}
-  searchText = '';
-  
-  navigateToRecipe(recipeId): void {
-    console.log(recipeId)
+    private recipeService: RecipeService,
+    private route: ActivatedRoute
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      this.searchText = ''
+      return false;
+    };
+    this.recipeService.loadRecipeList().subscribe(recipeList => {
+      this.recipeList = recipeList;
+    });
+  }
+
+
+
+
+  navigateToRecipe(recipeId: string): void {
     this.router.navigate(['recipe', 'details', recipeId])
   }
 
-  submitFormHandler(data: any) {
-    
+  submitFormHandler(searchText: any): void {
+    this.router.navigate(['search', searchText])
   }
-  
+
   logoutHandler(): void {
     this.authService.logout().subscribe(() => this.router.navigate(['/']));
   }
@@ -46,5 +54,6 @@ export class HeaderComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.sub.unsubscribe;
   }
 }

@@ -90,7 +90,7 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
   display: none;
 }
 
-.dropdown:focus-within .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
   position: absolute;
   background-color: #f9f9f9;
@@ -124,7 +124,7 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
   width: 90px;
   height: 110px;
   float: right;
-  border: solid 1px rgb(9, 56, 9);
+  border: solid 1px rgb(12, 68, 12);
 }
 
 .search-result p {

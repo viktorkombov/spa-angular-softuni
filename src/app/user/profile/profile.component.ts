@@ -26,4 +26,9 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  get isThereRecipes(): boolean {
+    console.log(this.myRecipes)
+    return this.myRecipes.length > 0 ? true : false;
+  }
+
 }

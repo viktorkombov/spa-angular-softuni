@@ -1,0 +1,9 @@
+<div class="recipe-info" routerLink="/recipe/details/{{recipe._id}}">
+    <img src="{{recipe.imageUrl}}" alt="Снимка на Ястието">
+    <div class="information-about-item">
+        <p>Име на рецептата: <span>{{recipe.recipeName}}</span></p>
+        <p>Категория: <span>{{recipe.necesseryTime}}</span></p>
+        <p>Споделил: <span>{{recipe.userId.username}}</span></p>
+        <p class="recipe-content">{{recipe.recipeContent | shortenText}}</p>
+    </div>
+</div>

@@ -10,9 +10,9 @@ font-family: 'PT sans', sans-serif;">
                     <input #input type="text" class="form-control" id="search-text" aria-describedby="search-text"
                         [(ngModel)]="searchText" placeholder="Търси..." autofocus
                         (keydown.enter)="submitFormHandler(input.value)" ngModel required>
-                    <div *ngIf="!isLoading" [class.input-error]="input.touched && !!input.value" class="dropdown-content">
+                    <div [class.input-error]="input.touched && !!input.value" class="dropdown-content">
                         <div *ngFor="let c of recipeList | appFilter: searchText">
-                            <div (change)="navigateToRecipe(c._id)" class="search-result">
+                            <div (click)="navigateToRecipe(c._id)" class="search-result">
                             <div>
                                 <p class="recipe-name">{{c.recipeName}}</p>
                                 <p class="recipe-content">{{c.recipeContent | shortenText}}</p>
