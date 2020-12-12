@@ -6,11 +6,12 @@ import { LinkValidatorDirective } from './url-validator.directive';
 import { UsernameValidatorDirective } from './username-validator.directive';
 import { LoaderComponent } from './loader/loader.component';
 import { ShortenTextForRecipeItemPipe } from './shorten-text-for-recipe-item.pipe';
+import { LoaderDirective } from './loader.directive';
 
 
 
 @NgModule({
-  declarations: [ShortenTextPipe, FilterPipe, ShortenTextForRecipeItemPipe, LinkValidatorDirective, UsernameValidatorDirective, LoaderComponent, ShortenTextForRecipeItemPipe],
+  declarations: [ShortenTextPipe, FilterPipe, ShortenTextForRecipeItemPipe, LinkValidatorDirective, UsernameValidatorDirective, LoaderComponent, ShortenTextForRecipeItemPipe, LoaderDirective],
   imports: [
     CommonModule
   ],
