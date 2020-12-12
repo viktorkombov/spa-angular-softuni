@@ -5,11 +5,12 @@ import { FilterPipe } from './filter.pipe';
 import { LinkValidatorDirective } from './url-validator.directive';
 import { UsernameValidatorDirective } from './username-validator.directive';
 import { LoaderComponent } from './loader/loader.component';
+import { ShortenTextForRecipeItemPipe } from './shorten-text-for-recipe-item.pipe';
 
 
 
 @NgModule({
-  declarations: [ShortenTextPipe, FilterPipe, LinkValidatorDirective, UsernameValidatorDirective, LoaderComponent],
+  declarations: [ShortenTextPipe, FilterPipe, ShortenTextForRecipeItemPipe, LinkValidatorDirective, UsernameValidatorDirective, LoaderComponent, ShortenTextForRecipeItemPipe],
   imports: [
     CommonModule
   ],
@@ -18,7 +19,8 @@ import { LoaderComponent } from './loader/loader.component';
     FilterPipe,
     LinkValidatorDirective,
     UsernameValidatorDirective,
-    LoaderComponent
+    LoaderComponent,
+    ShortenTextForRecipeItemPipe
   ]
 })
 export class SharedModule { }

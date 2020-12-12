@@ -11,10 +11,24 @@ import { AuthService } from 'src/app/core/auth.service';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   
-  recipeList: IRecipe[];
-  topFiveRecipes: IRecipe[];
+  topFiveRecipes: IRecipe[] 
   public currentUser;
-  constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) { }
+  constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) {
+    this.recipeService.loadRecipeList().subscribe(recipeList => {
+      this.topFiveRecipes = recipeList.sort((a, b) => {
+        if (a.likedBy.length > b.likedBy.length) {
+          return -1
+        } else if (a.likedBy.length < b.likedBy.length) {
+          return 1
+        } else {
+          return 0
+        }
+      })
+      if (this.topFiveRecipes.length > 5) { this.topFiveRecipes.length = 5}
+    });
+    this.currentUser = this.authService.currentUser;
+  
+   }
 
   get isLogged$(): boolean {
     return this.authService.isLogged$;
@@ -22,20 +36,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-    this.recipeService.loadRecipeList().subscribe(recipeList => {
-      this.recipeList = recipeList;
-    });
-    this.currentUser = this.authService.currentUser;
-    this.topFiveRecipes = this.recipeList.sort((a, b) => {
-      if (a.likedBy.length > b.likedBy.length) {
-        console.log(a.likedBy.length)
-        return 1
-      } else if (a.likedBy.length < b.likedBy.length) {
-        return -1
-      } else {
-        return 0
-      }
-    })
+    
+
   }
 
   ngAfterViewInit(): void {

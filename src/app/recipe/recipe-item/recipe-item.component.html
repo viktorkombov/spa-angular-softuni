@@ -1,7 +1,7 @@
 <div class="recipe-info" routerLink="/recipe/details/{{recipe._id}}">
     <img src="{{recipe.imageUrl}}" alt="Снимка на Ястието">
-    <p>Име на рецептата: <br> <span>{{recipe.recipeName}}</span></p>
-    <p>Категория: <br> <span>{{recipe.necesseryTime}}</span></p>
-    <p>Споделил: <br> <span>{{recipe.userId.username}}</span></p>
-    <p>Харесвания: <span>{{recipe.likedBy.length}}</span></p>
+    <p>Име на рецептата: <br> <span>{{recipe.recipeName | shortenTextForRecipeItem}}</span></p>
+    <p>Категория: <br> <span>{{recipe.necesseryTime | shortenTextForRecipeItem}}</span></p>
+    <p>Споделил: <br> <span>{{recipe.userId.username | shortenTextForRecipeItem}}</span></p>
+    <p>Харесвания: <br> <span>{{recipe.likedBy.length}}</span></p>
 </div>
