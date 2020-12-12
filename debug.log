@@ -1,2 +1,3 @@
 [1204/142457.843:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системата не може да намери указания път. (0x3)
 [1206/174530.819:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системата не може да намери указания път. (0x3)
+[1212/114404.304:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системата не може да намери указания път. (0x3)
