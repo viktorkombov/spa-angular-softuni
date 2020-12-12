@@ -27,6 +27,9 @@ export class HeaderComponent implements OnDestroy {
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       this.searchText = ''
+      this.recipeService.loadRecipeList().subscribe(recipeList => {
+        this.recipeList = recipeList;
+      });
       return false;
     };
     this.recipeService.loadRecipeList().subscribe(recipeList => {
