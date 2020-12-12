@@ -11,7 +11,8 @@ import { AuthService } from 'src/app/core/auth.service';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   
-  topFiveRecipes: IRecipe[] 
+  topFiveRecipes: IRecipe[]
+  isLoading: boolean = true; 
   public currentUser;
   constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) {
     this.recipeService.loadRecipeList().subscribe(recipeList => {
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       })
       if (this.topFiveRecipes.length > 5) { this.topFiveRecipes.length = 5}
     });
+    this.isLoading = false;
     this.currentUser = this.authService.currentUser;
   
    }
