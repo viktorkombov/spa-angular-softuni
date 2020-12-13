@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IRecipe, IUser } from '../shared/interfaces';
 import { RecipeService } from '../recipe/recipe.service'
@@ -12,9 +12,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   
   topFiveRecipes: IRecipe[]
-  isLoading: boolean = true; 
+  @Input() isLoading: boolean;
   public currentUser;
   constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) {
+    this.isLoading = true;
     this.recipeService.loadRecipeList().subscribe(recipeList => {
       this.topFiveRecipes = recipeList.sort((a, b) => {
         if (a.likedBy.length > b.likedBy.length) {
@@ -26,14 +27,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
       })
       if (this.topFiveRecipes.length > 5) { this.topFiveRecipes.length = 5}
+      this.isLoading = false;
     });
-    this.isLoading = false;
     this.currentUser = this.authService.currentUser;
   
    }
 
-  get isLogged$(): boolean {
-    return this.authService.isLogged$;
+  get isLogged(): boolean {
+    return this.authService.isLogged;
   }
 
 

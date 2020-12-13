@@ -3,6 +3,7 @@
         <h1>
             {{recipe.recipeName}}
         </h1>
+        <div *ngIf="isLoading" class="lds-ring"><div></div><div></div><div></div><div></div></div>
         <p>
             <span>ВашитеРецепти.BG</span> - сайт за споделяне на изпорбвани рецепти
         </p>
@@ -35,12 +36,12 @@
             <p>За да харесаш и ти, <a routerLink="/user/login">влез</a> в профила си, или ако нямаш такъв, се <a
                 routerLink="/user/register">регистрирай</a>.</p>
         </div>
-        <app-loader *ngIf="isLoading"></app-loader>
+        <p *ngIf="isLoading">Зареждане...</p>
         <div class="registered-users" *ngIf="isLogged && !isLoading">
             <div *ngIf="!isCreator">
             <div class="not-liked" *ngIf="!isLiked">
                 <p><a (click)="likeRecipe()" class="button">Харесай</a></p>
-                <p>Рецептата има {{recipe.likedBy.length}} харесвания.</p>
+                <p>Рецептата има {{recipe.likedBy.length}} {{recipe.likedBy.length !== 1 ? ' харесвания': ' харесване'}}.</p>
             </div>
             <div class="liked" *ngIf="isLiked">
                 <p *ngIf='recipe.likedBy.length === 1'>Ти си първият харесал тази рецепта!</p>
@@ -49,7 +50,7 @@
             </div>
             <div class="my-own-recipe" *ngIf="isCreator">
                 <a class="button" (click)="editRecipe()">Редактирай</a> <a class="button" (click)="deleteRecipe()">Изтрий</a>
-                <p>{{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'потребител харесва': 'потребители харесват'}} твоята рецепта.</p>
+                <p>{{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? ' потребител харесва': ' потребители харесват'}} твоята рецепта.</p>
             </div>
         </div>
     </div>

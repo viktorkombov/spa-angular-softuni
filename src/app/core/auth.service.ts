@@ -12,7 +12,7 @@ export class AuthService {
 
   currentUser: IUser | null;
   loginErr: boolean = false;
-  get isLogged$(): boolean {  return !!this.currentUser; }
+  get isLogged(): boolean {  return !!this.currentUser; }
   
 
   constructor(private http: HttpClient) { }

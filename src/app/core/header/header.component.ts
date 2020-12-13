@@ -13,8 +13,8 @@ export class HeaderComponent implements OnDestroy {
 
   hideNavigation = false;
 
-  get isLogged$(): boolean {
-    return this.authService.isLogged$;
+  get isLogged(): boolean {
+    return this.authService.isLogged;
   }
   sub: any
   recipeList: IRecipe[];
