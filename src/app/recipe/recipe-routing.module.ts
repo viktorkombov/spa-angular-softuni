@@ -13,7 +13,7 @@ const routes: Routes = [
         path: 'new',
         component: RecipeNewComponent,
         data: {
-          title: 'NEW THEME',
+          title: 'Нова рецепта',
           isLogged: true
         }
       },
@@ -23,7 +23,11 @@ const routes: Routes = [
       },
       {
         path: 'edit/:id',
-        component: RecipeEditComponent
+        component: RecipeEditComponent,
+        data: {
+          title: 'Редактирай рецептата',
+          isLogged: true
+        }
       }
     ]
   }

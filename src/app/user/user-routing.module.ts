@@ -17,7 +17,6 @@ const routes: Routes = [
             data: {
               isLogged: false,
               noNavigation: true,
-              title: 'REGISTER USER'
             },
           },
           {
@@ -25,7 +24,6 @@ const routes: Routes = [
             component: LoginComponent,
             data: {
               isLogged: false,
-              title: 'USER LOGIN'
             }
           },
           {
