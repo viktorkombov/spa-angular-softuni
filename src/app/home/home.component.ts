@@ -10,12 +10,18 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  
+  slides = [
+    {'image': 'https://www.garlicandzest.com/wp-content/uploads/2019/10/thai-squash-soup-3.jpg', 'name': 'Супи и чорби'},
+    {'image': 'https://pointcook.org/wp-content/uploads/2019/07/How-to-Barbeque-Myths-About-High-Heat.jpg', 'name': 'Скара'}
+]
+
   topFiveRecipes: IRecipe[]
   @Input() isLoading: boolean;
   public currentUser;
   constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) {
     this.isLoading = true;
+    this.recipeService.loadRecipeList().subscribe((recipeList) => {
+    })
     this.recipeService.loadRecipeList().subscribe(recipeList => {
       this.topFiveRecipes = recipeList.sort((a, b) => {
         if (a.likedBy.length > b.likedBy.length) {

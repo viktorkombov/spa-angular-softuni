@@ -1,23 +1,19 @@
 <div class="home-page-for-guests">
-    <div class="header">
-        <h1 *ngIf="!isLogged">
-            Научи нова рецепта за вкусна закуска, обяд или вечеря!
-        </h1>
-        <h1 *ngIf="isLogged">
-            Сподели с нас твоята любима рецепта!
-        </h1>
-        <p class="for-logged-in" *ngIf="isLogged">
-            <span>ВашитеРецепти.Bg</span> - сайт споделяне на изпорбвани рецепти
-        </p>
-        <p class="for-guests" *ngIf="!isLogged">
-            <span>ВашитеРецепти.Bg</span> - сайт споделяне на изпорбвани рецепти
-        </p>
-        <div class="buttons" *ngIf="!isLogged">
-            <a routerLink="/user/login" class="button">Вход</a>
-            <a routerLink="/user/register" class="button">Регистрация</a>
-        </div>
+    <div></div>
+    <mat-carousel timings="250ms ease-in" [autoplay]="true" interval="5000" color="accent" maxWidth="auto"
+    proportion="25" slides="5" [loop]="true" [hideArrows]="false" [hideIndicators]="false" [useKeyboard]="true"
+    [useMouseWheel]="false" orientation="ltr" style="position: relative;">
+    <div *ngIf="isLoading">
+        <app-loader style="text-align: center;" [isLoading]="isLoading"></app-loader>
     </div>
-    <div >
+    <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
+        overlayColor="#00002050" [hideOverlay]="false">
+        <div
+            style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-shadow: 0 0 1px black;">
+            <h1 style="padding: 10px;">{{slide.name}}</h1>
+        </div>
+    </mat-carousel-slide>
+</mat-carousel>
         <div *ngIf="isLogged">
             <p class="caption-for-logged-in">Добре дошъл в своя профил, {{currentUser.username}}!</p>
             <div class="for-sharing-button"><a routerLink="/recipe/new" class="button">Сподели рецепта</a></div>

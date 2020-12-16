@@ -16,7 +16,7 @@
             <label for="ingredients">Нужни съставки:</label>
             <p class="comas-for-ingredients">Изреди със запетая*</p>
             <input [class.input-error]="form.get('ingredients').touched && !!form.get('ingredients').errors" type="text"
-                name="ingredients" placeholder="Изброй подправките със запетая..." formControlName="ingredients">
+                name="ingredients" placeholder="Изброй съставките със запетая..." formControlName="ingredients">
             <p *ngIf="form.get('ingredients').touched && form.get('ingredients').errors?.required" class="error">
                 Попълването на поле "Нужни съставки" е задължително!
             </p>
@@ -34,7 +34,8 @@
             <label for="category">Категория:</label>
             <select [class.select]="!form.get('category').touched || !!!form.get('category').errors"
              [class.input-error]="form.get('category').touched && !!form.get('category').errors" name="category" formControlName="category">
-                <option value="Предястия">Предястия</option>
+             <option value="" disabled selected>Посочи категорията...</option>
+             <option value="Предястия">Предястия</option>
                 <option value="Основни">Основни</option>
                 <option value="Супи и чорби">Супи и чорби</option>
                 <option value="Скара">Скара</option>
@@ -53,6 +54,7 @@
             <select [class.select]="!form.get('difficultyLevel').touched || !!!form.get('difficultyLevel').errors"
             [class.input-error]="form.get('difficultyLevel').touched && !!form.get('difficultyLevel').errors"
                 name="difficultyLevel" formControlName="difficultyLevel">
+                <option value="" disabled selected>Посочи трудността на приготвяне...</option>
                 <option value="Лесно за приготвяне">Лесно за приготвяне</option>
                 <option value="Средно по трудност">Средно по трудност</option>
                 <option value="Трудно за приготвяне">Трудно за приготвяне</option>
@@ -68,6 +70,7 @@
             <select [class.select]="!form.get('necesseryTime').touched || !!!form.get('necesseryTime').errors"
              [class.input-error]="form.get('necesseryTime').touched && !!form.get('necesseryTime').errors"
                 name="necesseryTime" formControlName="necesseryTime">
+                <option value="" disabled selected>Посочи нужното време...</option>
                 <option value="15 мин.">15 мин.</option>
                 <option value="30 мин.">30 мин.</option>
                 <option value="45 мин.">45 мин.</option>
@@ -81,14 +84,14 @@
             <!-- imageUrl -->
             <label for="img">Линк за изображение на ястието:</label>
             <input [class.input-error]="form.get('imageUrl').touched && !!form.get('imageUrl').errors" type="text"
-                name="imageUrl" formControlName="imageUrl">
+                name="imageUrl" formControlName="imageUrl" placeholder="Посочи валиден линк за твоето изображение...">
 
             <p *ngIf="form.get('imageUrl').touched && form.get('imageUrl').errors?.required" class="error">
                 Попълването на поле "Линк за изображение на ястието" е задължително!
             </p>
 
             <p *ngIf="form.get('imageUrl').touched && form.get('imageUrl').errors?.linkValidator" class="error">
-                Твоят линк трябва а съдържа "http" или "https"!
+                Твоят линк не е валиден!
             </p>
 
 

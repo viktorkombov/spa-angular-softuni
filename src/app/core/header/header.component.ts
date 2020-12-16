@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, DoCheck, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { RecipeService } from 'src/app/recipe/recipe.service';
-import { IRecipe } from 'src/app/shared/interfaces';
+import { IRecipe, IUser } from 'src/app/shared/interfaces';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,22 +10,34 @@ import { AuthService } from '../auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
 
   hideNavigation = false;
-
+  currentUser: IUser;
   get isLogged(): boolean {
     return this.authService.isLogged;
   }
+  focus: boolean = false;
+
+  get isFocused(): string {
+    if (this.focus === true) {
+      return '#9ecaed'
+    } else 
+    return 'none';
+  }
+  faSearch = faSearch
   sub: any
   recipeList: IRecipe[];
+  klass: string;
   searchText = '';
+  scrollTop = 100;
   constructor(
     private authService: AuthService,
     private router: Router,
     private recipeService: RecipeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
+    this.currentUser = this.authService.currentUser;
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       this.searchText = ''
       this.recipeService.loadRecipeList().subscribe(recipeList => {
@@ -37,8 +50,28 @@ export class HeaderComponent implements OnDestroy {
     });
   }
 
+  ngOnInit() {
+    this.currentUser = this.authService.currentUser;
+    this.focus = false;
+  }
 
+  ngOnChanges() {
+    this.klass = this.focus === true ? 'search-class': 'no-class'
+  }
 
+  onScroll($event) {
+    console.log('kor')
+    this.hideNavigation = this.scrollTop < $event.target.scrollTop;
+    this.scrollTop = $event.target.scrollTop
+  }
+
+  onFocus(): void {
+    this.focus = true;
+  }
+
+  outOfFocus(): void {
+    this.focus = false;
+  }
 
   navigateToRecipe(recipeId: string): void {
     this.router.navigate(['recipe', 'details', recipeId])

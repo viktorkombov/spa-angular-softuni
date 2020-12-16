@@ -5,9 +5,19 @@ body {
     margin: 0;
     padding: 0;
     font-size: 18px;
-    background-color: rgb(250, 246, 246);
-    
+    background-color: whitesmoke;
+    margin: 0 auto;
 }
+
+.container {
+    margin: 0px auto;
+    width: 1300px;
+    box-shadow: 0 0 5px black;
+    box-sizing:content-box;
+    padding: 100px 0;
+    background-color: white;
+}
+
 
 h1 {
     line-height: 36px;
@@ -123,7 +133,7 @@ button[disabled]:hover {
 .header h1 {
     padding: 140px 0px 0px 400px;
     margin: 0;
-    width: 34%;
+    width: 80%;
     position: static;
 }
 

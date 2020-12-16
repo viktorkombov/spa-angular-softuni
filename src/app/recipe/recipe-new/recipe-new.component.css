@@ -4,6 +4,10 @@
     text-align: center;
 }
 
+.new-recipe input {
+    width: 300px;
+}
+
 .new-recipe h2 {
     color: darkolivegreen;
 }
@@ -27,15 +31,17 @@ select.input-error {
     color: black;
     border-radius: 5px;
     height: 27px;
-    width: 250px;
+    width: 300px;
 }
 
 .new-recipe .select {
-    width: 250px;
+    width: 300px;
     border: 2px solid #97A92B;
     border-radius: 5px;
-    height: 27px;
+    height: 30px;
     color: black;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 .new-recipe .select::selection {

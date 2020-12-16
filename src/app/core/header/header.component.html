@@ -1,51 +1,31 @@
 <header style="@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-font-family: 'PT sans', sans-serif;">
+font-family: 'PT sans', sans-serif;" (scroll)="onScroll($event)" [class.hide-nav]="hideNavigation">
     <nav>
         <p class="appName"><a routerLink="/home">ВашитеРецепти.BG</a></p>
         <ul>
 
-            <li class="forSearch" style="display: inline-flex;
-            margin-right: 0px;">
+            <!-- search -->
+            <li class="forSearch" style="display: inline-flex;">
                 <div class="dropdown">
-                    <input #input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+                    <input #input (focus)="onFocus()" (focusout)="outOfFocus()" type="text" class="form-control" id="search-input" aria-describedby="search-input"
                         [(ngModel)]="searchText" placeholder="Търси..." autofocus
                         (keydown.enter)="submitFormHandler(input.value)" ngModel required>
-                    <div [class.input-error]="input.touched && !!input.value" class="dropdown-content">
+                    <div class="dropdown-content">
                         <div *ngFor="let c of recipeList | appFilter: searchText">
                             <div (click)="navigateToRecipe(c._id)" class="search-result">
-                            <div>
-                                <p class="recipe-name">{{c.recipeName}}</p>
-                                <p class="recipe-content">{{c.recipeContent | shortenText}}</p>
+                                <div>
+                                    <p class="recipe-name">{{c.recipeName}}</p>
+                                    <p class="recipe-content">{{c.recipeContent | shortenText}}</p>
+                                </div>
+                                <img class="search-result-img" src="{{c.imageUrl}}" alt="Снимка на рецептата">
                             </div>
-                            <img class="search-result-img" src="{{c.imageUrl}}" alt="Снимка на рецептата">
-                        </div>
                         </div>
                     </div>
-                    <img id="search"
-                        src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt=""
-                        (click)="submitFormHandler(input.value)">
                 </div>
+                <fa-icon id="search-btn" [icon]="faSearch" (click)="submitFormHandler(input.value)"></fa-icon>
             </li>
-
-
-
-
-
-
-            <!-- search -->
-
-            <!-- <li class="forSearch" style="display: inline-flex;
-            margin-right: 0px;">
-                <div class="dropdown">
-                    <input type="text" placeholder="Търси...">
-                    <div class="dropdown-content" *ngFor="let match of matches">
-                        <p>{{match}}</p>
-                    </div>
-                </div>
-                <img id="search"
-                    src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-17.jpg" alt="">
-            </li> -->
-
+            <!-- search ^^ -->
+            
             <li>
                 <a routerLink="/home">Начало</a>
             </li>
@@ -53,7 +33,7 @@ font-family: 'PT sans', sans-serif;">
                 <a routerLink="/recipe/new">Сподели рецепта</a>
             </li>
             <li *ngIf="isLogged">
-                <a (click)="getUserHander()">Моят профил</a>
+                <img src="{{currentUser.profilePicture}}" alt=" " (click)="getUserHander()">
             </li>
             <li *ngIf="!isLogged">
                 <a routerLink="/user/login">Вход</a>

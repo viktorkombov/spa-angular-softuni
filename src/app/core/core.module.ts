@@ -8,6 +8,9 @@ import { AuthGuard } from './guards/auth.guard'
 import { appInterceptorProvider } from './app.interceptor';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent],
@@ -15,7 +18,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     RouterModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgbModule,
+    FontAwesomeModule
   ],
   exports: [ FooterComponent, HeaderComponent
   ],

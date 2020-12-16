@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,11 @@ import { AboutComponent } from './about/about.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { GalleryComponent } from './gallery/gallery.component';
+
 
 @NgModule({
   declarations: [
@@ -20,17 +26,22 @@ import { FormsModule } from '@angular/forms';
     NotFoundComponent,
     SearchingToolComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule, 
+    CoreModule,
     UserModule,
     RecipeModule,
     SharedModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatCarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
