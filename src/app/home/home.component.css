@@ -6,6 +6,10 @@
     border-color: white; */
 }
 
+.go-to-category:hover {
+    cursor: pointer !important;
+}
+
 .caption-for-guests {
 text-align: center;
 font-size: 25px;

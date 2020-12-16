@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeNewComponent } from './recipe-new/recipe-new.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'details/:id',
         component: RecipeDetailsComponent
+      },
+      {
+        path: 'category',
+        component: RecipeCategoryComponent
       },
       {
         path: 'edit/:id',

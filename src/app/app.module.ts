@@ -27,7 +27,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     SearchingToolComponent,
     AboutComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,

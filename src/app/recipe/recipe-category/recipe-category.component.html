@@ -1,0 +1,21 @@
+<div class="searching-tool">
+    <div class="header">
+        <h1>
+            Сподели с нас твоята любима рецепта!
+        </h1>
+        <p>
+            <span>ВашитеРецепти.BG</span> - сайт за споделяне на изпорбвани рецепти
+        </p>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center; margin: 100px;">
+        <app-loader  [isLoading]="isLoading"></app-loader>
+    </div>
+    <h3 *ngIf="!isThereResult && !isLoading" class="no-results">Няма открити резултати.</h3>
+    <div *ngIf="isThereResult" class="result-container">
+        <div class="result-from-searching">
+            <h3>Резултати:</h3>
+            <app-recipe-item-for-search *ngFor="let recipe of recipeList" [recipe]="recipe">
+            </app-recipe-item-for-search>
+        </div>
+    </div>
+</div>

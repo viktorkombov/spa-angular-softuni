@@ -1,16 +1,19 @@
 footer {
-    background: #97A92B;
+    background: white;
+    width: 100%;
     padding: 35px 30px;
+    bottom: 0;
+    
 }
 
 footer p {
     margin: 10px;
     text-align: center;
-    color: white
+    color: #6B8C25
 }
 
 footer a {
-    color: brown;
+    color: rgb(255, 255, 255);
     font-weight: 600;
 }
 

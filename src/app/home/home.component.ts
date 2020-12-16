@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/core/auth.service';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   slides = [
-    {'image': 'https://www.garlicandzest.com/wp-content/uploads/2019/10/thai-squash-soup-3.jpg', 'name': 'Супи и чорби'},
-    {'image': 'https://pointcook.org/wp-content/uploads/2019/07/How-to-Barbeque-Myths-About-High-Heat.jpg', 'name': 'Скара'}
+    {'image': 'https://www.garlicandzest.com/wp-content/uploads/2019/10/thai-squash-soup-3.jpg', 'name': 'Супи и чорби', 'category': 'Супи и чорби'},
+    {'image': 'https://pointcook.org/wp-content/uploads/2019/07/How-to-Barbeque-Myths-About-High-Heat.jpg', 'name': 'Скара', 'category': 'bbq'}
 ]
 
   topFiveRecipes: IRecipe[]

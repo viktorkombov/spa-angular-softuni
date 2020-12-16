@@ -9,11 +9,12 @@ import { RecipeService } from './recipe.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeItemForSearchComponent } from './recipe-item-for-search/recipe-item-for-search.component';
+import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
 
 
 
 @NgModule({
-  declarations: [RecipeDetailsComponent, RecipeNewComponent, RecipeItemComponent, RecipeEditComponent, RecipeItemForSearchComponent],
+  declarations: [RecipeDetailsComponent, RecipeNewComponent, RecipeItemComponent, RecipeEditComponent, RecipeItemForSearchComponent, RecipeCategoryComponent],
   imports: [
     CommonModule,
     RecipeRoutingModule,

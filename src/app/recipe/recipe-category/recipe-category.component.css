@@ -1,0 +1,17 @@
+.searching-tool .header p {
+    padding-bottom: 80px;
+    margin-bottom: 20px;
+}
+
+.searching-tool h3 {
+    text-align: center;
+}
+
+.searching-tool .no-results {
+    padding-top: 80px;
+    padding-bottom: 130px;
+}
+
+.result-container {
+    text-align: center;
+}
