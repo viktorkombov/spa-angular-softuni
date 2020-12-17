@@ -5,12 +5,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-    {
-        path: 'user',
-        canActivateChild: [
-          AuthGuard
-        ],
-        children: [
+    // {
+        // path: 'user',
+        // canActivateChild: [
+        //   AuthGuard
+        // ],
+        // children: [
           {
             path: 'register',
             component: RegisterComponent,
@@ -34,8 +34,8 @@ const routes: Routes = [
               title: 'USER PROFILE'
             }
           }
-        ]
-      }
+      //   ]
+      // }
     ];
 
 export const UserRoutingModule = RouterModule.forChild(routes);

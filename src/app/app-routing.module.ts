@@ -34,6 +34,11 @@ const routes: Routes = [
                 component: GalleryComponent
             },
             {
+                path: 'user',
+                canActivateChild: [AuthGuard],
+                loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+            },
+            {
                 path: '**',
                 component: NotFoundComponent
             },

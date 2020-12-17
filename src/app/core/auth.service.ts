@@ -18,32 +18,32 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   getCurrentUserProfile(): Observable<any> {
-    return this.http.get(`${apiUrl}/users/profile`, { withCredentials: true }).pipe(
+    return this.http.get(`/users/profile`).pipe(
       tap(((user: IUser) => this.currentUser = user)),
-      catchError(() => { this.currentUser = null; return of(null); })
+      catchError(() => { this.currentUser = null; return []; })
     );
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${apiUrl}/users/login`, data, { withCredentials: true }).pipe(
+    return this.http.post(`/users/login`, data).pipe(
       tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);})
     );
   }
 
   register(data: any): Observable<any> {
-    return this.http.post(`${apiUrl}/users/register`, data, { withCredentials: true }).pipe(
+    return this.http.post(`/users/register`, data).pipe(
       tap((user: IUser) => this.currentUser = user)
     );
   }
 
   logout(): Observable<any> {
-    return this.http.post(`${apiUrl}/users/logout`, {}, { withCredentials: true }).pipe(
+    return this.http.post(`/users/logout`, {}).pipe(
       tap(() => this.currentUser = null)
     );
   }
 
   updateProfile(data: any): Observable<IUser> {
-    return this.http.put(`${apiUrl}/users/profile`, data, { withCredentials: true }).pipe(
+    return this.http.put(`/users/profile`, data).pipe(
       tap((user: IUser) => this.currentUser = user)
     );
   }

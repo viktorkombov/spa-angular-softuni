@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UserModule } from './user/user.module';
 import { SearchingToolComponent } from './searching-tool/searching-tool.component';
 import { RecipeModule } from './recipe/recipe.module';
 import { AboutComponent } from './about/about.component';
@@ -33,7 +32,6 @@ import { GalleryComponent } from './gallery/gallery.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    UserModule,
     RecipeModule,
     SharedModule,
     HttpClientModule,

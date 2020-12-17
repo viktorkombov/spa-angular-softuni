@@ -21,18 +21,18 @@ export class RecipeService {
   }
 
   saveRecipe(data: any): Observable<IRecipe<IUser>> {
-    return this.http.post<IRecipe<any>>(`/recipes`, data, {withCredentials: true});
+    return this.http.post<IRecipe<any>>(`/recipes`, data);
   }
 
   likeRecipe(id: string): Observable<IRecipe> {
-    return this.http.put<IRecipe>(`/recipes/${id}`, {}, {withCredentials: true});
+    return this.http.put<IRecipe>(`/recipes/${id}`, {});
   }
 
   deleteRecipe(id: string): Observable<any> {
-    return this.http.post<IRecipe>(`/recipes/delete/${id}`, {}, {withCredentials: true});
+    return this.http.post<IRecipe>(`/recipes/delete/${id}`, {});
   }  
 
   editRecipe(id: string, data): Observable<IRecipe> {
-    return this.http.post<IRecipe>(`/recipes/edit/${id}`, data, {withCredentials: true});
+    return this.http.post<IRecipe>(`/recipes/edit/${id}`, data);
   }
 }
