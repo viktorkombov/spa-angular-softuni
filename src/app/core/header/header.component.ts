@@ -12,23 +12,17 @@ import { AuthService } from '../auth.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
 
-  hideNavigation = false;
   currentUser: IUser;
+  hideNavigation = false;
   get isLogged(): boolean {
+    console.log(this.authService.isLogged)
     return this.authService.isLogged;
   }
-  focus: boolean = false;
 
-  get isFocused(): string {
-    if (this.focus === true) {
-      return '#9ecaed'
-    } else 
-    return 'none';
-  }
+  
   faSearch = faSearch
   sub: any
   recipeList: IRecipe[];
-  klass: string;
   searchText = '';
   scrollTop = 100;
   constructor(
@@ -49,28 +43,11 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
       this.recipeList = recipeList;
     });
   }
+  ngOnChanges() {
 
+  }
   ngOnInit() {
     this.currentUser = this.authService.currentUser;
-    this.focus = false;
-  }
-
-  ngOnChanges() {
-    this.klass = this.focus === true ? 'search-class': 'no-class'
-  }
-
-  onScroll($event) {
-    console.log('kor')
-    this.hideNavigation = this.scrollTop < $event.target.scrollTop;
-    this.scrollTop = $event.target.scrollTop
-  }
-
-  onFocus(): void {
-    this.focus = true;
-  }
-
-  outOfFocus(): void {
-    this.focus = false;
   }
 
   navigateToRecipe(recipeId: string): void {

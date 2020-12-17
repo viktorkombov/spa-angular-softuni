@@ -11,9 +11,9 @@
 }
 
 .caption-for-guests {
-text-align: center;
-font-size: 25px;
-padding: 20px;
+text-align: left;
+font-size: 18px;
+padding: 20px 100px;
 font-weight: 600;
 margin: 0;
 color: darkolivegreen;

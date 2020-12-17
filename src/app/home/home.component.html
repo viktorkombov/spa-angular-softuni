@@ -17,7 +17,7 @@
         </div>
         <div>
             <div class="recipe-list">
-                <p class="caption-for-guests">Топ 5 рецепти за деня:</p>
+                <p class="caption-for-guests">Потърси рецепта или сподели своя.</p>
                 <app-loader style="text-align: center;" [isLoading]="isLoading"></app-loader>
                 <app-recipe-item *ngFor="let recipe of topFiveRecipes" [recipe]="recipe"></app-recipe-item>
             </div>

@@ -45,21 +45,49 @@
 }
 
 .example-card {
+    font-size: 18px;
+    font-weight: 300;
     display: inline-block;
-        padding: 20px;
-    padding-right: 12px;
+    padding-right: 0px;
     padding-top: 9px;
-    padding-left: 9px;
-    max-width: 400px;
+    padding-left: 0px;
+    width: 190px;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 40px;
   }
 
+  .example-card p {
+      padding-top: 10px;
+      padding-bottom: 0;
+      margin-bottom: 0px;
+  }
+
+  .card-actions {
+    margin: 0;
+    padding: 0;
+  }
+  .card-button {
+      padding: 10px;
+      margin-bottom: 15px;
+      margin-top: 0px;
+  }
+  .card-title {
+      display: block;
+    font-size: 18px;
+    font-weight: 300;
+
+  }
+
   .example-card img {
-      max-width: 400px;
+      width: 190px;
+      padding: 0;
+      height: 150px;
+    margin: 0 auto;
   }
   
 .example-header-image {
     background-size: cover;
+    margin-left: 9px;
+    margin-right: 0;
 }

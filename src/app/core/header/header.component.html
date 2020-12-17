@@ -1,21 +1,22 @@
 <header style="@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-font-family: 'PT sans', sans-serif;" (scroll)="onScroll($event)" [class.hide-nav]="hideNavigation">
+font-family: 'PT sans', sans-serif;">
     <nav>
+        <!-- the name of the app -->
         <p class="appName"><a routerLink="/home">ВашитеРецепти.BG</a></p>
         <ul>
 
-            <!-- search -->
-            <li class="forSearch" style="display: inline-flex;">
-                <div class="dropdown">
-                    <input #input (focus)="onFocus()" (focusout)="outOfFocus()" type="text" class="form-control" id="search-input" aria-describedby="search-input"
+            <!-- search field with dropdown -->
+            <li class="li-for-search" style="display: inline-flex;">
+                <div class="search-field-dropdown">
+                    <input #input type="text" class="form-control" id="search-input" aria-describedby="search-input"
                         [(ngModel)]="searchText" placeholder="Търси..." autofocus
                         (keydown.enter)="submitFormHandler(input.value)" ngModel required>
-                    <div class="dropdown-content">
+                    <div class="search-field-dropdown-content">
                         <div *ngFor="let c of recipeList | appFilter: searchText">
-                            <div (click)="navigateToRecipe(c._id)" class="search-result">
+                            <div (click)="navigateToRecipe(c._id)" class="search-field-dropdown-result">
                                 <div>
-                                    <p class="recipe-name">{{c.recipeName}}</p>
-                                    <p class="recipe-content">{{c.recipeContent | shortenText}}</p>
+                                    <p class="search-field-dropdown-recipe-name">{{c.recipeName}}</p>
+                                    <p class="search-field-dropdown-recipe-content">{{c.recipeContent | shortenText}}</p>
                                 </div>
                                 <img class="search-result-img" src="{{c.imageUrl}}" alt="Снимка на рецептата">
                             </div>
@@ -24,7 +25,7 @@ font-family: 'PT sans', sans-serif;" (scroll)="onScroll($event)" [class.hide-nav
                 </div>
                 <fa-icon id="search-btn" [icon]="faSearch" (click)="submitFormHandler(input.value)"></fa-icon>
             </li>
-            <!-- search ^^ -->
+            <!-- search field  with dropdown-->
             
             <li>
                 <a routerLink="/home">Начало</a>

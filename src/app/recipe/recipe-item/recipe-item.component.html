@@ -9,17 +9,16 @@
 <mat-card class="example-card" routerLink="/recipe/details/{{recipe._id}}">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image" style="background-image: url('{{recipe.userId.profilePicture}}');"></div>
-      <mat-card-title>{{recipe.recipeName}}</mat-card-title>
+      <mat-card-title class="card-title">{{recipe.recipeName | shortenTextForRecipeItem}}</mat-card-title>
       <mat-card-subtitle>Рецепта</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="{{recipe.imageUrl}}" alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
-        {{recipe.recipeContent | shortenText}}
+        {{recipe.category}}
       </p>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+    <mat-card-actions class="card-actions">
+      <button mat-button class="card-button">Към рецептата</button>
     </mat-card-actions>
   </mat-card>

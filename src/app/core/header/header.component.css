@@ -4,16 +4,6 @@ header {
   position: sticky;
 }
 
-
-
-input:focus {
-  outline: none;
-  border-right: 0px;
-  border-color: #9ecaed;
-  box-shadow: 0 0 10px #9ecaed;
-  color: black;
-}
-
 nav {
   background-color: white;
   font-size: 18px;
@@ -25,7 +15,6 @@ nav {
   margin: 0 auto;
   text-align: center;
 }
-
 
 nav .appName {
   font-family: 'Pattaya';
@@ -49,8 +38,6 @@ nav a {
   color: #6B8C25;
 }
 
-
-
 nav a:hover {
   color: darkblue;
   cursor: pointer;
@@ -67,11 +54,20 @@ nav input {
   height: 25px;
 }
 
+
+
+/* search field*/
+
 nav input[type='text'] { font-size: 16px; height: 21px; }
 
-/* search */
+nav input:focus {
+  outline: none;
+  border-right: 0px;
+  box-shadow: 0 0 10px #9ecaed;
+  color: black;
+}
 
-.forSearch {
+.li-for-sarch {
   display: inline-flex;
   margin-right: 10px;
 }
@@ -91,9 +87,6 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
   vertical-align: center;
 }
 
-.hide-nav {
-  display: none;
-}
 #search:hover {
   cursor: pointer;
   color: grey;
@@ -105,16 +98,16 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
   width: 180px;
 }
 
-.dropdown {
+.search-field-dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-content {
+.search-field-dropdown-content {
   display: none;
 }
 
-.dropdown:hover .dropdown-content {
+.search-field-dropdown:hover .search-field-dropdown-content {
   display: block;
   position: absolute;
   background-color: #f9f9f9;
@@ -123,7 +116,7 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
   /* z-index: 1; */
 }
 
-.search-result:hover {
+.search-field-dropdown-result:hover {
   background:  #6B8C25;
   border-radius: 4px;
   cursor: pointer;
@@ -131,18 +124,18 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
 }
 
  
-.search-result {
+.search-field-dropdown-result {
   border-bottom: black 1px solid;
   height: 140px;
 }
 
-.search-result div {
+.search-field-dropdown-result div {
   width: 230px;
   float: left;
   margin-bottom: 3px;
   margin-top: 3px;
 }
-.search-result-img {
+.search-field-dropdown-result img {
   margin-top: 16px;
   margin-right: 23px;
   width: 90px;
@@ -151,17 +144,17 @@ nav input[type='text'] { font-size: 16px; height: 21px; }
   border: solid 1px rgb(12, 68, 12);
 }
 
-.search-result p {
+.search-field-dropdown-result p {
   padding-left: 10px;
 }
 
-.search-result .recipe-name {
+.search-field-dropdown-result .search-field-dropdown-recipe-name {
   margin-top: 10px;
   margin-bottom: 0px;
   font-weight: 600;
 }
 
-.search-result .recipe-content {
+.search-field-dropdown-result .search-field-dropdown-recipe-content {
   margin-top: 0;
   margin-bottom: 0;
 }

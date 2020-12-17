@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces';
 import { catchError, tap } from 'rxjs/operators';
 
-const apiUrl = environment.apiUrl;
 
 @Injectable()
 export class AuthService {
@@ -20,13 +18,13 @@ export class AuthService {
   getCurrentUserProfile(): Observable<any> {
     return this.http.get(`/users/profile`).pipe(
       tap(((user: IUser) => this.currentUser = user)),
-      catchError(() => { this.currentUser = null; return []; })
+      catchError(() => { this.currentUser = null; return [null]; })
     );
   }
 
   login(data: any): Observable<any> {
     return this.http.post(`/users/login`, data).pipe(
-      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser);})
+      tap((user: IUser) => {this.currentUser = user; console.log(this.currentUser + 'logina');})
     );
   }
 

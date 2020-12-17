@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces';
-import { catchError, tap } from 'rxjs/operators';
 import { AuthService } from '../core/auth.service';
 
 @Injectable()
@@ -14,5 +13,4 @@ export class UserService {
     private authService: AuthService
   ) { }
 
- 
 }
