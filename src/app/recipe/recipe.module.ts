@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeItemForSearchComponent } from './recipe-item-for-search/recipe-item-for-search.component';
 import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -21,7 +22,8 @@ import { RecipeCategoryComponent } from './recipe-category/recipe-category.compo
     SharedModule,
     FormsModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [
     RecipeService

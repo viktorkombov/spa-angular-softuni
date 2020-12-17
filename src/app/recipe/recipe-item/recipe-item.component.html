@@ -1,7 +1,25 @@
-<div class="recipe-info" routerLink="/recipe/details/{{recipe._id}}">
+<!-- <div class="recipe-info" routerLink="/recipe/details/{{recipe._id}}">
     <img src="{{recipe.imageUrl}}" alt="Снимка на Ястието">
     <p>Име на рецептата: <br> <span>{{recipe.recipeName | shortenTextForRecipeItem}}</span></p>
     <p>Категория: <br> <span>{{recipe.necesseryTime | shortenTextForRecipeItem}}</span></p>
     <p>Споделил: <br> <span>{{recipe.userId.username | shortenTextForRecipeItem}}</span></p>
     <p>Харесвания: <br> <span>{{recipe.likedBy.length}}</span></p>
-</div>
+</div> -->
+
+<mat-card class="example-card" routerLink="/recipe/details/{{recipe._id}}">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" style="background-image: url('{{recipe.userId.profilePicture}}');"></div>
+      <mat-card-title>{{recipe.recipeName}}</mat-card-title>
+      <mat-card-subtitle>Рецепта</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{recipe.imageUrl}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{recipe.recipeContent | shortenText}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
