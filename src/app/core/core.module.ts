@@ -22,12 +22,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NgbModule,
     FontAwesomeModule
   ],
-  exports: [ FooterComponent, HeaderComponent
-  ],
   providers: [
     AuthService,
     AuthGuard,
     appInterceptorProvider
-  ]
+  ],   
+  exports: [ FooterComponent, 
+    HeaderComponent]
 })
 export class CoreModule { }

@@ -1,13 +1,16 @@
 <div class="home-page-for-guests">
     <div></div>
     <mat-carousel timings="250ms ease-in" [autoplay]="true" interval="5000" color="accent" maxWidth="auto"
-    proportion="25" slides="5" [loop]="true" [hideArrows]="false" [hideIndicators]="false" [useKeyboard]="true"
+    proportion="25" slides="7" [loop]="true" [hideArrows]="false" [hideIndicators]="false" [useKeyboard]="true"
     [useMouseWheel]="false" orientation="ltr" style="position: relative; cursor: pointer;">
     <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
-        overlayColor="#00002050" [hideOverlay]="false">
+        overlayColor="#00004050" [hideOverlay]="false">
         <div class="go-to-category" [routerLink]="['/recipe/category']" [queryParams]="{'category': slide.category}"
             style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-shadow: 0 0 1px black;">
-            <h1 style="padding: 10px;">{{slide.name}}</h1>
+            <h1 class="category-name" style="padding: 10px;">{{slide.name}}</h1>
+            <p class="site-name">
+                <span>ВашитеРецепти.BG</span> - сайт за споделяне на изпорбвани рецепти
+            </p>
         </div>
     </mat-carousel-slide>
 </mat-carousel>
@@ -17,7 +20,7 @@
         </div>
         <div>
             <div class="recipe-list">
-                <p class="caption-for-guests">Потърси рецепта или сподели своя.</p>
+                <p class="caption-for-guests">Най-харесваните рецепти днес</p>
                 <app-loader style="text-align: center;" [isLoading]="isLoading"></app-loader>
                 <app-recipe-item *ngFor="let recipe of topFiveRecipes" [recipe]="recipe"></app-recipe-item>
             </div>

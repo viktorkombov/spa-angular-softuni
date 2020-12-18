@@ -34,7 +34,7 @@ font-family: 'PT sans', sans-serif;">
                 <a routerLink="/recipe/new">Сподели рецепта</a>
             </li>
             <li *ngIf="isLogged">
-                <img src="{{currentUser.profilePicture}}" alt=" " (click)="getUserHander()">
+                <a (click)="getUserHander()">Моят профил</a>
             </li>
             <li *ngIf="!isLogged">
                 <a routerLink="/user/login">Вход</a>

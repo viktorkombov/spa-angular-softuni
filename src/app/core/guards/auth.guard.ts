@@ -3,7 +3,6 @@ import { ActivatedRouteSnapshot, CanActivateChild, Router, RouterStateSnapshot, 
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { IUser } from 'src/app/shared/interfaces';
-import { UserService } from 'src/app/user/user.service';
 import { AuthService } from '../auth.service';
 
 @Injectable()

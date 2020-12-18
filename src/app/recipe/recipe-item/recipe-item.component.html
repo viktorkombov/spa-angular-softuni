@@ -15,7 +15,7 @@
     <img mat-card-image src="{{recipe.imageUrl}}" alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
-        {{recipe.category}}
+        {{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'харесване': 'харесвания'}}
       </p>
     </mat-card-content>
     <mat-card-actions class="card-actions">

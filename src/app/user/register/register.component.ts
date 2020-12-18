@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 import { linkValidator, rePasswordValidatorFactory, usernameValidator } from 'src/app/shared/validators';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',

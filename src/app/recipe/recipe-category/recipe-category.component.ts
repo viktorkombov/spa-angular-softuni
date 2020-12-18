@@ -11,6 +11,7 @@ import { RecipeService } from '../recipe.service';
 export class RecipeCategoryComponent implements OnInit {
 
   recipeList: IRecipe[] = [];
+  category: string
   @Input() isLoading: boolean
   constructor(
     private recipeService: RecipeService,
@@ -20,6 +21,7 @@ export class RecipeCategoryComponent implements OnInit {
     this.isLoading = true;
     const searchText = activatedRoute.snapshot.queryParams['category'];
     const searchPattern = new RegExp(searchText, 'gi')
+    this.category = searchText;
     recipeService.loadRecipeList().subscribe(recipeList => {
       recipeList.forEach((recipe) => {
         if (searchPattern.test(recipe.category)) {

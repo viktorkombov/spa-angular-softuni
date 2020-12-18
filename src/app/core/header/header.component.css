@@ -39,7 +39,7 @@ nav a {
 }
 
 nav a:hover {
-  color: darkblue;
+  color: grey;
   cursor: pointer;
   text-decoration: none;
   text-shadow: 0 0 0.5px darkblue;
@@ -67,7 +67,7 @@ nav input:focus {
   color: black;
 }
 
-.li-for-sarch {
+.li-for-search {
   display: inline-flex;
   margin-right: 10px;
 }
@@ -89,7 +89,8 @@ nav input:focus {
 
 #search:hover {
   cursor: pointer;
-  color: grey;
+  color: #6B8C25;
+  background-color: grey;
 }
 
 #search-input {
@@ -120,6 +121,7 @@ nav input:focus {
   background:  #6B8C25;
   border-radius: 4px;
   cursor: pointer;
+  color: black;
   box-shadow: 1px 0px 10px black;
 }
 
@@ -141,7 +143,8 @@ nav input:focus {
   width: 90px;
   height: 110px;
   float: right;
-  border: solid 1px rgb(12, 68, 12);
+  border: solid 1px black;
+  border-radius: 2%;
 }
 
 .search-field-dropdown-result p {

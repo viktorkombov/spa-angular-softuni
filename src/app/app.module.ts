@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
-import { GalleryComponent } from './gallery/gallery.component';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -26,12 +26,12 @@ import { GalleryComponent } from './gallery/gallery.component';
     SearchingToolComponent,
     AboutComponent,
     HomeComponent,
-    GalleryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    UserModule,
     RecipeModule,
     SharedModule,
     HttpClientModule,

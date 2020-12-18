@@ -105,3 +105,10 @@
     }
   }
   
+  .registered-users p, .my-own-recipe p {
+    padding-bottom: 30px;
+  }
+
+  .p-for-login {
+    padding-bottom: 30px;
+  }

@@ -33,7 +33,7 @@
     <div class="likes">
         <div class="unregistered-users" *ngIf="!isLogged">
             <p>Рецептата има {{recipe.likedBy.length}} харесвания.</p>
-            <p>За да харесаш и ти, <a routerLink="/user/login">влез</a> в профила си, или ако нямаш такъв, се <a
+            <p class="p-for-login">За да харесаш и ти, <a routerLink="/user/login">влез</a> в профила си, или ако нямаш такъв, се <a
                     routerLink="/user/register">регистрирай</a>.</p>
         </div>
         <app-loader *ngIf="isLoading"></app-loader>
@@ -46,14 +46,13 @@
                 <div class="liked" *ngIf="isLiked">
                     <p *ngIf='recipe.likedBy.length === 1'>Ти си първият харесал тази рецепта!</p>
                     <p *ngIf="recipe.likedBy.length > 1">Ти и още {{recipe.likedBy.length - 1}} {{recipe.likedBy.length
-                        > 2 ? ' потребители': ' потребител'}}харесахте тази рецепта.</p>
+                        > 2 ? ' потребители ': ' потребител '}}харесахте тази рецепта.</p>
                 </div>
             </div>
             <div class="my-own-recipe" *ngIf="isCreator">
                 <a class="button" (click)="editRecipe()">Редактирай</a> <a class="button"
                     (click)="deleteRecipe()">Изтрий</a>
-                <p>{{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'потребител харесва': 'потребители
-                    харесват'}} твоята рецепта.</p>
+                <p>{{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'потребител харесва': 'потребители харесват '}} твоята рецепта.</p>
             </div>
         </div>
     </div>
