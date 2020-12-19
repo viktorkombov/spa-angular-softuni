@@ -29,6 +29,11 @@ const routes: Routes = [
                 component: SearchingToolComponent
             },
             {
+                path: 'user',
+                canActivateChild: [AuthGuard],
+                loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+            },
+            {
                 path: '**',
                 component: NotFoundComponent
             },

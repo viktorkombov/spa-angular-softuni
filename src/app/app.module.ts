@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
-import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -31,7 +30,6 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    UserModule,
     RecipeModule,
     SharedModule,
     HttpClientModule,

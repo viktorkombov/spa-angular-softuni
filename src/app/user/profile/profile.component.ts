@@ -8,14 +8,12 @@ import { IRecipe } from 'src/app/shared/interfaces';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
   recipeList: IRecipe[];
   myRecipes: IRecipe[] = [];
   public currentUser;
-  constructor(private recipeService: RecipeService, public authService: AuthService) { }
-
-  ngOnInit(): void {
+  constructor(private recipeService: RecipeService, public authService: AuthService) { 
     this.currentUser = this.authService.currentUser;
     this.recipeService.loadRecipeList().subscribe(recipeList => {
       recipeList.forEach((recipe) => {
@@ -25,6 +23,7 @@ export class ProfileComponent implements OnInit {
       })
     });
   }
+
 
   get isThereRecipes(): boolean {
     console.log(this.myRecipes)
