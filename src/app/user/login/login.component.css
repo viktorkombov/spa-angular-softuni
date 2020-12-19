@@ -12,6 +12,7 @@
 }
 
 .login-form fieldset {
+    background: rgb(250, 246, 246);
     margin-top: 0px;
     text-align: center;
     padding: 10px 0px 90px;

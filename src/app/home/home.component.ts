@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {'image': 'https://i.zajenata.bg/images/115/m_1142a18284689b81a654b69aa84a4470.jpg', 'name': 'Предястия', 'category': 'Предястия'},
     {'image': 'https://m.az-jenata.bg/media/az-jenata/files/articles/528x396/df3d67f2ceed28b8a8b55d2a7d5cbe3d.jpg', 'name': 'Десерти', 'category': 'Десерти'},
     {'image': 'https://goodfoodtour.bg/wp-content/uploads/sites/23/2016/11/39d300a296a48a95d6861ea872a321c40f36c37aeddf74b36dpimgpsh_fullsize_distr.jpg', 'name': 'Тестени изделия', 'category': 'Тестени изделия'},
-    {'image': 'http://assets.kulinaria.bg/attachments/pictures-images/0000/5739/MAIN-2015-08-14-13-58-04-0300-0.jpg?1439549884', 'name': 'Салати', 'category': 'Салати'}
+    {'image': 'https://gotvach.bg/files/lib/600x350/caprese-salad-123.jpg', 'name': 'Салати', 'category': 'Салати'}
 ]
 
   topFiveRecipes: IRecipe[]

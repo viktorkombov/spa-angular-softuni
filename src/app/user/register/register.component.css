@@ -12,6 +12,7 @@
 }
 
 .register-form fieldset {
+    background: rgb(250, 246, 246);
     text-align: center;
     padding: 10px 0px 60px;
     margin-top: 0px;
