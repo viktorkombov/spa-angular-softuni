@@ -28,11 +28,11 @@ const routes: Routes = [
                 path: 'search/:searchText',
                 component: SearchingToolComponent
             },
-            // {
-            //     path: 'user',
-            //     canActivateChild: [AuthGuard],
-            //     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
-            // },
+            {
+                path: 'user',
+                canActivateChild: [AuthGuard],
+                loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+            },
             {
                 path: '**',
                 component: NotFoundComponent
