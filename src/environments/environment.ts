@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'https://your-recipes-expressjs-server.herokuapp.com',
-  apiUrl: 'http://localhost:3000/api'
+  apiUrl: 'https://your-recipes-expressjs-server.herokuapp.com/api'
 };
 
 /*
