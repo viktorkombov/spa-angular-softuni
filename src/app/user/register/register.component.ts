@@ -9,7 +9,7 @@ import { linkValidator, rePasswordValidatorFactory, usernameValidator } from 'sr
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   form: FormGroup;
 
@@ -29,9 +29,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-  
 
   submitHandler(): void {
     const data = this.form.value;
