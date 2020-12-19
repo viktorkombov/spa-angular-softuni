@@ -23,7 +23,6 @@ import { RecipeModule } from '../recipe/recipe.module';
     RecipeModule
   ],
   providers: [
-    // UserService
   ]
 })
 export class UserModule { }

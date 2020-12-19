@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
 
   currentUser: IUser;
   hideNavigation = false;
@@ -41,6 +41,12 @@ export class HeaderComponent implements OnDestroy {
     this.recipeService.loadRecipeList().subscribe(recipeList => {
       this.recipeList = recipeList;
     });
+  }
+  ngOnChanges() {
+
+  }
+  ngOnInit() {
+    this.currentUser = this.authService.currentUser;
   }
 
   navigateToRecipe(recipeId: string): void {
