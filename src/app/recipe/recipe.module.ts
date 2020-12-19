@@ -11,6 +11,7 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeItemForSearchComponent } from './recipe-item-for-search/recipe-item-for-search.component';
 import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 
@@ -23,7 +24,7 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [
     RecipeService

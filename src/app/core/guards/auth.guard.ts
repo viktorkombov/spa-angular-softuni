@@ -28,7 +28,6 @@ export class AuthGuard implements CanActivateChild {
       }),
       tap((canContinue) => {
         if (canContinue) { return; }
-        console.log(this.router.url + ' aaa')
         const url = this.router.url;
         this.router.navigateByUrl(url);
       }),
@@ -36,3 +35,4 @@ export class AuthGuard implements CanActivateChild {
   }
 
 }
+

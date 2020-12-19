@@ -20,7 +20,7 @@
         </div>
         <div>
             <div class="recipe-list">
-                <p class="caption-for-guests">Най-харесваните рецепти днес</p>
+                <p class="caption-for-guests">Петте най-харесвани рецепти</p>
                 <app-loader style="text-align: center;" [isLoading]="isLoading"></app-loader>
                 <app-recipe-item *ngFor="let recipe of topFiveRecipes" [recipe]="recipe"></app-recipe-item>
             </div>

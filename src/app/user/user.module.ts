@@ -24,7 +24,7 @@ import { RecipeModule } from '../recipe/recipe.module';
     RecipeModule
   ],
   providers: [
-    UserService
+    // UserService
   ]
 })
 export class UserModule { }

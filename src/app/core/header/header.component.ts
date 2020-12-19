@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
   currentUser: IUser;
   hideNavigation = false;
   get isLogged(): boolean {
-    console.log(this.authService.isLogged)
     return this.authService.isLogged;
   }
 
