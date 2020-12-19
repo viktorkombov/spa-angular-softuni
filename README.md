@@ -24,7 +24,7 @@ Here you can read recipes, which are shared by another users and find them with 
 
 The application provides to users with the functionality to share recipes, to view recipe details page and to like recipes or to edit or delete these which are created by them.
 
-This app has autentication, authorization, error handling and data validation for avoiding crashes when invalid data is entered.
+This app has authentication, authorization, error handling and data validation for avoiding crashes when invalid data is entered.
 
 ## Source code
 
