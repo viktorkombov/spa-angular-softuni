@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       {
         next: (data) => {
             this.isLoading = false
-            this.router.navigate(['/user/profile']);
+            this.router.navigate(['/']);
         },
         error: (err) => {
           this.errorMessage = 'Потребителското име или паролата са грешни!';

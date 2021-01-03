@@ -1,3 +1,54 @@
+.slider {
+    font-family: 'Gabriela', 'Palatino', serif;
+    text-shadow: 1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+    background-color: black;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+
+.slider-image {
+    opacity: 0.5;
+    border-radius: 5px;
+}
+
+.slider:hover {
+    cursor: pointer;
+    transform: scale(1.005);
+}
+
+
+.carousel-caption {
+    z-index: 2;
+}
+
+.carousel-caption:focus {
+    outline: none;
+}
+
 .home-page-for-guests {
     background: whitesmoke;
     color: white;

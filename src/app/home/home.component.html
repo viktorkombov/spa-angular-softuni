@@ -1,19 +1,16 @@
 <div class="home-page-for-guests">
-    <div></div>
-    <mat-carousel timings="250ms ease-in" [autoplay]="true" interval="5000" color="accent" maxWidth="auto"
-    proportion="25" slides="7" [loop]="true" [hideArrows]="false" [hideIndicators]="false" [useKeyboard]="true"
-    [useMouseWheel]="false" orientation="ltr" style="position: relative; cursor: pointer;">
-    <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
-        overlayColor="#00004050" [hideOverlay]="false">
-        <div class="go-to-category" [routerLink]="['/recipe/category']" [queryParams]="{'category': slide.category}"
-            style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-shadow: 0 0 1px black;">
-            <h1 class="category-name" style="padding: 10px;">{{slide.name}}</h1>
-            <p class="site-name">
-                <span>ВашитеРецепти.BG</span> - сайт за споделяне на изпорбвани рецепти
-            </p>
-        </div>
-    </mat-carousel-slide>
-</mat-carousel>
+    <ngb-carousel class="slider" *ngIf="images">
+        <ng-template ngbSlide *ngFor="let img of images" overlayColor="#00009050">
+            <div class="picsum-img-wrapper">
+                <img [src]="img.image" routerLink="/about" alt="Random first slide" width="100%" height="300px"
+                    style="object-fit: cover;" class="slider-image">
+            </div>
+            <div class="carousel-caption" routerLink="/about">
+                <h3>{{img.name}}</h3>
+                <p class="historical-picture__category">{{img.category}}</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
         <div *ngIf="isLogged">
             <p class="caption-for-logged-in">Добре дошъл в своя профил, {{currentUser.username}}!</p>
             <div class="for-sharing-button"><a routerLink="/recipe/new" class="button">Сподели рецепта</a></div>

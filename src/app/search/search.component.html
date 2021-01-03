@@ -1,4 +1,4 @@
-<div class="searching-tool">
+<div class="search-result">
     <div class="header">
         <h1>
             Сподели с нас твоята любима рецепта!
@@ -10,8 +10,8 @@
     <div *ngIf="isLoading" style="text-align: center; margin: 100px;">
         <app-loader  [isLoading]="isLoading"></app-loader>
     </div>
-    <h3 *ngIf="!isThereResult && !isLoading" class="no-results">Няма открити резултати.</h3>
-    <div *ngIf="isThereResult" class="result-container">
+    <h3 *ngIf="!isThereResult && !isLoading" class="no-result">Няма открити резултати.</h3>
+    <div *ngIf="isThereResult" class="search-result-container">
         <div class="result-from-searching">
             <h3>Резултати:</h3>
             <app-recipe-item-for-search *ngFor="let recipe of recipeList" [recipe]="recipe">

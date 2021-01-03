@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { tick } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -15,7 +16,8 @@ export class AuthGuard implements CanActivateChild {
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     let stream$: Observable<IUser | null>;
-    if (this.authService.currentUser === undefined) {
+    if (!this.authService.currentUser) {
+      console.log(this.authService.currentUser)
       stream$ = this.authService.getCurrentUserProfile();
     } else {
       stream$ = of(this.authService.currentUser);

@@ -1,13 +1,13 @@
-.searching-tool .header p {
+.search .header p {
     padding-bottom: 80px;
     margin-bottom: 20px;
 }
 
-.searching-tool h3 {
+.search h3 {
     text-align: center;
 }
 
-.searching-tool .no-results {
+.search .no-results {
     padding-top: 80px;
     padding-bottom: 130px;
 }

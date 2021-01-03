@@ -1,18 +1,13 @@
-header {
-  z-index: 10;
-  width: 100%;
-  position: sticky;
-}
-
 nav {
+  position: sticky !important;
+  top: 0;
+  z-index: 10;
   background-color: white;
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
   color: #6B8C25;
-  position: fixed;
   width: 100%;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -67,7 +62,7 @@ nav input:focus {
   color: black;
 }
 
-.li-for-search {
+.tag-for-search {
   display: inline-flex;
   margin-right: 10px;
 }
@@ -160,4 +155,33 @@ nav input:focus {
 .search-field-dropdown-result .search-field-dropdown-recipe-content {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+
+nav .row {
+  display: none;
+  
+}
+
+#dropdownBasic1 {
+  border-color: #6B8C25;
+  color: #6B8C25;
+}
+
+#dropdownBasic1:hover {
+  background-color: #6B8C25;
+  color: white;
+}
+
+.row #search-input {
+  margin-left: 12px;
+}
+@media screen and (max-width: 800px) {
+  nav ul {
+    display: none
+  }
+
+  nav .row {
+    display: block;
+  }
 }

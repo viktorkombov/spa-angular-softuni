@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  slides = [
+  images = [
     {'image': 'https://www.garlicandzest.com/wp-content/uploads/2019/10/thai-squash-soup-3.jpg', 'name': 'Супи и чорби', 'category': 'Супи и чорби'},
     {'image': 'https://pointcook.org/wp-content/uploads/2019/07/How-to-Barbeque-Myths-About-High-Heat.jpg', 'name': 'Скара', 'category': 'Скара'},
     {'image': 'https://m.az-jenata.bg/media/az-jenata/files/articles/448x336/5a0551de10d43100c78dfda546338b5c.jpg', 'name': 'Основни', 'category': 'Основни'},

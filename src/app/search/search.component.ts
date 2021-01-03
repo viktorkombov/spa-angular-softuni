@@ -6,11 +6,11 @@ import { RecipeService } from '../recipe/recipe.service';
 import { IRecipe } from '../shared/interfaces';
 
 @Component({
-  selector: 'app-searching-tool',
-  templateUrl: './searching-tool.component.html',
-  styleUrls: ['./searching-tool.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class SearchingToolComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   recipeList: IRecipe[] = [];
   @Input() isLoading: boolean
