@@ -1,6 +1,6 @@
 import { Component, OnDestroy, DoCheck, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 import { IRecipe, IUser } from 'src/app/shared/interfaces';
 import { AuthService } from '../auth.service';
@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
 
   
   faSearch = faSearch
+  faBars = faBars
   sub: any
   recipeList: IRecipe[];
   searchText = '';

@@ -5,20 +5,44 @@
     <p>Споделил: <br> <span>{{recipe.userId.username | shortenTextForRecipeItem}}</span></p>
     <p>Харесвания: <br> <span>{{recipe.likedBy.length}}</span></p>
 </div> -->
+  <div class="historical-picture" style="
+      background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10, 10, 10, 0)),
+        color-stop(50%, rgba(10, 10, 10, 0)),
+        to(rgba(10, 10, 10, 0.7))
+    ), url('{{recipe.imageUrl}}');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10, 10, 10, 0) 0%,
+        rgba(10, 10, 10, 0) 50%,
+        rgba(10, 10, 10, 0.7) 100%
+    ), url('{{recipe.imageUrl}}');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0) 0%,
+        rgba(10, 10, 10, 0) 50%,
+        rgba(10, 10, 10, 0.7) 100%
+    ), url('{{recipe.imageUrl}}');">
+    <p class="historical-picture__category">{{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'харесване':
+      'харесвания'}}</p>
+    <p class="historical-picture__title">{{recipe.recipeName | shortenTextForRecipeItem}}</p>
+  </div>
 
-<mat-card class="example-card" routerLink="/recipe/details/{{recipe._id}}">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image" style="background-image: url('{{recipe.userId.profilePicture}}');"></div>
-      <mat-card-title class="card-title">{{recipe.recipeName | shortenTextForRecipeItem}}</mat-card-title>
-      <mat-card-subtitle>Рецепта</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{recipe.imageUrl}}" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        {{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'харесване': 'харесвания'}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions class="card-actions">
-      <button mat-button class="card-button">Към рецептата</button>
-    </mat-card-actions>
-  </mat-card>
+<!-- <mat-card class="example-card" routerLink="/recipe/details/{{recipe._id}}">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" style="background-image: url('{{recipe.userId.profilePicture}}');"></div>
+    <mat-card-title class="card-title">{{recipe.recipeName | shortenTextForRecipeItem}}</mat-card-title>
+    <mat-card-subtitle>Рецепта</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{recipe.imageUrl}}" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{recipe.likedBy.length}} {{recipe.likedBy.length === 1 ? 'харесване': 'харесвания'}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="card-actions">
+    <button mat-button class="card-button">Към рецептата</button>
+  </mat-card-actions>
+</mat-card> -->

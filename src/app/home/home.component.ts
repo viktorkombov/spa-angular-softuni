@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {'image': 'https://gotvach.bg/files/lib/600x350/caprese-salad-123.jpg', 'name': 'Салати', 'category': 'Салати'}
 ]
 
-  topFiveRecipes: IRecipe[]
+  topNineRecipes: IRecipe[]
   @Input() isLoading: boolean;
   public currentUser;
   constructor(private recipeService: RecipeService, private http: HttpClient, public authService: AuthService) {
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.recipeService.loadRecipeList().subscribe((recipeList) => {
     })
     this.recipeService.loadRecipeList().subscribe(recipeList => {
-      this.topFiveRecipes = recipeList.sort((a, b) => {
+      this.topNineRecipes = recipeList.sort((a, b) => {
         if (a.likedBy.length > b.likedBy.length) {
           return -1
         } else if (a.likedBy.length < b.likedBy.length) {
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           return 0
         }
       })
-      if (this.topFiveRecipes.length > 5) { this.topFiveRecipes.length = 5}
+      if (this.topNineRecipes.length > 9) { this.topNineRecipes.length = 9}
       this.isLoading = false;
     });
     this.currentUser = this.authService.currentUser;
