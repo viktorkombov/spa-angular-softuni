@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { AuthService } from 'src/app/core/auth.service';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 import { IRecipe } from 'src/app/shared/interfaces';
@@ -8,15 +8,14 @@ import { IRecipe } from 'src/app/shared/interfaces';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
   recipeList: IRecipe[];
   myRecipes: IRecipe[] = [];
   public currentUser;
-  constructor(private recipeService: RecipeService, public authService: AuthService) { }
-
-  ngOnInit(): void {
+  constructor(private recipeService: RecipeService, public authService: AuthService) { 
     this.currentUser = this.authService.currentUser;
+    console.log(this.currentUser)
     this.recipeService.loadRecipeList().subscribe(recipeList => {
       recipeList.forEach((recipe) => {
         if (recipe.userId._id.toString() === this.currentUser._id.toString()) {
@@ -25,6 +24,8 @@ export class ProfileComponent implements OnInit {
       })
     });
   }
+
+    
 
   get isThereRecipes(): boolean {
     console.log(this.myRecipes)

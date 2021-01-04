@@ -1,18 +1,18 @@
-.recipe-info-page .header p {
+.recipe-details .header p {
     padding-bottom: 100px;
     margin-bottom: 15px;
 }
 
-.likes {
+.recipe-details-likes {
     text-align: center;
     margin-top: 30px
 }
 
-.recipe-main-info .brief-info ul {
+.recipe-details-container .recipe-details-meta-data ul {
     text-align: center;
 }
 
-.recipe-main-info .brief-info ul li {
+.recipe-details-container .recipe-details-meta-data ul li {
     color: darkolivegreen;
     display: inline-block;
     padding-right: 10px;
@@ -20,31 +20,31 @@
     border-left: solid;
 }
 
-.recipe-main-info .brief-info ul li:first-child {
+.recipe-details-container .recipe-details-meta-data ul li:first-child {
     border-left: none;
 }
 
-.recipe-main-info .main-info p {
+.recipe-details-container .recipe-details-base-text p {
     text-align: justify;
     padding-left: 100px;
     padding-right: 70px;
     padding-top: 18px;
 }
 
-.recipe-info-page .likes {
+.recipe-details .recipe-details-likes {
     text-align: center;
 }
 
-.ingredients {
+.recipe-details-ingredients {
     float: left;
-    width: 500px;
+    max-width: 500px;;
     border-bottom: 1px solid darkolivegreen;
     margin-right: 50px;
     margin-left: 100px;
     margin-bottom: 20px;
 }
 
-.ingredients p {
+.recipe-details-ingredients p {
     text-align: center;
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -52,7 +52,9 @@
     color: darkolivegreen;
 }
 
-.ingredients ul li {
+
+
+.recipe-details-ingredients ul li {
     color: darkolivegreen;
     display: inline-block;
     padding-right: 10px;
@@ -60,12 +62,12 @@
     border-left: solid;
 }
 
-.ingredients ul {
+.recipe-details-ingredients ul {
     text-align: left;
     padding: 0px;
 }
 
-.my-own-recipe a{
+.recipe-details-my-own-recipe a{
     margin: 10px;
 }
 
@@ -105,10 +107,24 @@
     }
   }
   
-  .registered-users p, .my-own-recipe p {
+  .recipe-details-registered-users p, .recipe-details-my-own-recipe p {
     padding-bottom: 30px;
   }
 
-  .p-for-login {
+  .recipe-details-login {
     padding-bottom: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .recipe-details-ingredients {
+      max-width: 300px;
+      display: contents;
+      text-align: center;
+    }
+
+    div.recipe-details-container > div.recipe-details-base-text > p {
+      padding: 0;
+      width: 85%;
+      margin: 0 auto;
+  }
   }

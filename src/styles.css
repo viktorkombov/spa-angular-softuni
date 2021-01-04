@@ -138,16 +138,16 @@ button[disabled]:hover {
 }
 
 .header h1 {
-    padding: 140px 0px 0px 400px;
+    padding: 140px 0px 0px;
+    text-align: center;
     margin: 0;
     width: 80%;
-    position: static;
 }
 
 .header p {
     padding-top: 0px;
     margin-top: 0px;
-    margin-left: 400px;
+    text-align: center;
     margin-bottom: 50px;
     text-shadow: 2px 2px black;
 }

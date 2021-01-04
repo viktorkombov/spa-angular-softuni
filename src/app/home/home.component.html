@@ -15,14 +15,38 @@
         <p class="caption-for-logged-in">Добре дошъл в своя профил, {{currentUser.username}}!</p>
         <div class="for-sharing-button"><a routerLink="/recipe/new" class="button">Сподели рецепта</a></div>
     </div>
-    <div>
-        <div class="recipe-list">
-            <p class="caption-for-guests">Най-харесваните рецепти</p>
-            <app-loader style="text-align: center;" [isLoading]="isLoading"></app-loader>
-            <div class="body-content-container">
-                <div class="content-container">
-                    <div class="recipe-pictures-container">
-                        <div class="recipe-picture" *ngFor="let recipe of topNineRecipes" routerLink="/recipe/details/{{recipe._id}}" style="
+    <div class="home-text-content">
+        <div class="home-text">
+            <p class="home-text-text">
+                Много ястия имат конкретни имена (напр. мусака), докато други имат описателни имена (напр.
+                „печен ребра“). Мнозина са кръстени за конкретни места, понякога поради специфична асоциация
+                с това място (напр. „бостънски печен боб“), а друг път не определят назованата дестинация.
+            </p>
+        </div>
+        <div class="home-text">
+            <p class="home-text-text">
+                Някои са назовани на конкретни личности, вероятно за да ги почетат, включително сиренето
+                Брилат-Саварин, наречено за френския гурме от 18 век и известния политически деятел Жан
+                Антхелме Брилат-Саварин.
+            </p>
+        </div>
+        <div class="home-text">
+            <p class="home-text-text">
+                Mоже би пък защото ястието първо е приготвено за тях – като Шаляпин пържола, направена по
+                поръчка на руския оперен певец Феодор Шаляпин през 1934 г. в Япония, или може би са я
+                нарекли за себе си, защото са измислили ястието, или може би защото ястието е измислено в
+                кухнята им.
+            </p>
+        </div>
+    </div>
+    <div class="recipe-list">
+        <p class="caption-for-guests">Най-харесваните рецепти</p>
+        <app-loader style="text-align: center;" [isLoading]="isLoading"></app-loader>
+        <div class="body-content-container">
+            <div class="content-container">
+                <div class="recipe-pictures-container">
+                    <div class="recipe-picture" *ngFor="let recipe of topNineRecipes"
+                        routerLink="/recipe/details/{{recipe._id}}" style="
                                       background-image: -webkit-gradient(
                                         linear,
                                         left top, left bottom,
@@ -42,18 +66,17 @@
                                         rgba(10, 10, 10, 0) 50%,
                                         rgba(10, 10, 10, 0.7) 100%
                                     ), url('{{recipe.imageUrl}}');">
-                            <p class="recipe-picture__title">{{recipe.recipeName | shortenTextForRecipeItem}}</p>
-                            <p class="recipe-picture__likes">{{recipe.likedBy.length}} {{recipe.likedBy.length
-                                === 1 ? 'харесване':
-                                'харесвания'}}</p>
-                        </div>
+                        <p class="recipe-picture__title">{{recipe.recipeName}}</p>
+                        <p class="recipe-picture__likes">{{recipe.likedBy.length}} {{recipe.likedBy.length
+                            === 1 ? 'харесване':
+                            'харесвания'}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="options-for-login-or-register" *ngIf="!isLogged">
-            <p>За повече възможности в сайта <a routerLink="/user/login">влез</a> в профила си или ако
-                все още нямаш такъв се <a routerLink="/user/register">регистрай</a>!</p>
-        </div>
+    </div>
+    <div class="options-for-login-or-register" *ngIf="!isLogged">
+        <p>За повече възможности в сайта <a routerLink="/user/login">влез</a> в профила си или ако
+            все още нямаш такъв се <a routerLink="/user/register">регистрай</a>!</p>
     </div>
 </div>

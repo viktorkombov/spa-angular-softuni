@@ -232,7 +232,31 @@ color: darkolivegreen;
     -ms-grid-column: span 3;
         grid-column-start: span 3;
   }
+
   
+  .home-text-content {
+    padding: 8px;
+    display: flex;
+  }
+
+  .home-text {
+    flex-basis: 100%;
+    text-align: justify;
+    justify-content: flex-start;
+    padding: 8px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+  }
+
+  .home-text-text {
+    color: black;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 200;
+  }
+
+
   @media screen and (max-width: 1200px) {
     .recipe-picture:nth-child(n) {
         -ms-grid-column: span 6;
@@ -245,4 +269,12 @@ color: darkolivegreen;
         -ms-grid-column: span 12;
             grid-column-start: span 12;
     }
+    .home-text-content {
+        flex-direction: column;
+    }
+    .home-text {
+        width: 100%;
+    }
   }
+
+  
