@@ -3,7 +3,7 @@ footer {
     width: 100%;
     padding: 35px 30px;
     bottom: 0;
-    
+    z-index: 5;
 }
 
 footer p {

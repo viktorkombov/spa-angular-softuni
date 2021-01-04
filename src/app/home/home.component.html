@@ -22,7 +22,7 @@
             <div class="body-content-container">
                 <div class="content-container">
                     <div class="recipe-pictures-container">
-                        <div class="recipe-picture" *ngFor="let recipe of topNineRecipes" style="
+                        <div class="recipe-picture" *ngFor="let recipe of topNineRecipes" routerLink="/recipe/details/{{recipe._id}}" style="
                                       background-image: -webkit-gradient(
                                         linear,
                                         left top, left bottom,

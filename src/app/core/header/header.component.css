@@ -43,7 +43,6 @@ nav a:hover {
 nav input {
   width: 120px;
   margin-top: 10px;
-  height: 20px;
   margin-bottom: 0;
   margin-top: 0px;
   height: 25px;
@@ -152,15 +151,45 @@ nav input:focus {
   font-weight: 600;
 }
 
+
+
+.search-field-dropdown:hover .search-field-dropdown-content-for-mobile {
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 150px;
+  border-radius: 2%;
+  /* z-index: 1; */
+}
+
+
+.search-field-dropdown-result-for-mobile:hover {
+  background:  #6B8C25;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  box-shadow: 1px 0px 10px black;
+}
+
+.search-field-dropdown-content-for-mobile img {
+  width: 95%;
+  border-radius: 5px;
+}
+
+.result-border-mobile {
+  padding-top: 10px ;
+  padding-bottom: 5px;
+  border-bottom: solid 1px black;
+}
+
 .search-field-dropdown-result .search-field-dropdown-recipe-content {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 
-nav .row {
+nav .nav-for-mobile {
   display: none;
-  
 }
 
 #dropdownBasic1 {
@@ -173,15 +202,27 @@ nav .row {
   color: white;
 }
 
-.row #search-input {
-  margin-left: 12px;
-}
+
 @media screen and (max-width: 800px) {
   nav ul {
     display: none
   }
 
-  nav .row {
-    display: block;
+  nav .nav-for-mobile {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+  }
+
+  nav #search-input {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+  #dropdownBasic1 {
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: top;
+    height: 27.2px;  
   }
 }

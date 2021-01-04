@@ -11,7 +11,8 @@
                     (keydown.enter)="submitFormHandler(input.value)" ngModel required>
                 <div class="search-field-dropdown-content">
                     <div *ngFor="let c of recipeList | appFilter: searchText">
-                        <div (click)="navigateToRecipe(c._id)" class="search-field-dropdown-result">
+                        <div  class="search-field-dropdown-result">
+                            <a routerLink="recipe/{{c._id}}"></a>
                             <div>
                                 <p class="search-field-dropdown-recipe-name">{{c.recipeName}}</p>
                                 <p class="search-field-dropdown-recipe-content">{{c.recipeContent | shortenText}}</p>
@@ -47,54 +48,56 @@
             <a (click)="logoutHandler()">Изход</a>
         </li>
     </ul>
-    <div class="row">
-        <div class="col">
-            <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle><fa-icon [icon]="faBars" ></fa-icon></button>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <div class="tag-for-search" style="display: inline-flex;">
-                        <div class="search-field-dropdown">
-                            <input #input type="text" class="form-control" id="search-input"
-                                aria-describedby="search-input" [(ngModel)]="searchText" placeholder="Търси..."
-                                autofocus (keydown.enter)="submitFormHandler(input.value)" ngModel required>
-                            <div class="search-field-dropdown-content">
-                                <div *ngFor="let c of recipeList | appFilter: searchText">
-                                    <div (click)="navigateToRecipe(c._id)" class="search-field-dropdown-result">
-                                        <div>
-                                            <p class="search-field-dropdown-recipe-name">{{c.recipeName}}</p>
-                                            <p class="search-field-dropdown-recipe-content">{{c.recipeContent |
-                                                shortenText}}</p>
-                                        </div>
-                                        <img class="search-result-img" src="{{c.imageUrl}}" alt="Снимка на рецептата">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <fa-icon id="search-btn" [icon]="faSearch" (click)="submitFormHandler(input.value)"></fa-icon>
+    <div class="nav-for-mobile">
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle><fa-icon [icon]="faBars" ></fa-icon></button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem>
+                            <a routerLink="/home">Начало</a>
+                        </button>
+                        <button ngbDropdownItem *ngIf="isLogged">
+                            <a routerLink="/recipe/new">Сподели рецепта</a>
+                        </button>
+                        <button ngbDropdownItem *ngIf="isLogged">
+                            <a (click)="getUserHander()">Моят профил</a>
+                        </button>
+                        <button ngbDropdownItem *ngIf="!isLogged">
+                            <a routerLink="/user/login">Вход</a>
+                        </button>
+                        <button ngbDropdownItem *ngIf="!isLogged">
+                            <a routerLink="/user/register">Регистрация</a>
+                        </button>
+                        <button ngbDropdownItem>
+                            <a routerLink="/about">За нас</a>
+                        </button>
+                        <button ngbDropdownItem *ngIf="isLogged">
+                            <a (click)="logoutHandler()">Изход</a>
+                        </button>
                     </div>
-                    <button ngbDropdownItem>
-                        <a routerLink="/home">Начало</a>
-                    </button>
-                    <button ngbDropdownItem *ngIf="isLogged">
-                        <a routerLink="/recipe/new">Сподели рецепта</a>
-                    </button>
-                    <button ngbDropdownItem *ngIf="isLogged">
-                        <a (click)="getUserHander()">Моят профил</a>
-                    </button>
-                    <button ngbDropdownItem *ngIf="!isLogged">
-                        <a routerLink="/user/login">Вход</a>
-                    </button>
-                    <button ngbDropdownItem *ngIf="!isLogged">
-                        <a routerLink="/user/register">Регистрация</a>
-                    </button>
-                    <button ngbDropdownItem>
-                        <a routerLink="/about">За нас</a>
-                    </button>
-                    <button ngbDropdownItem *ngIf="isLogged">
-                        <a (click)="logoutHandler()">Изход</a>
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="tag-for-search" style="display: inline-flex;">
+            <div class="search-field-dropdown">
+                <input #input type="text" class="form-control" id="search-input"
+                    aria-describedby="search-input" [(ngModel)]="searchText" placeholder="Търси..."
+                    autofocus (keydown.enter)="submitFormHandler(input.value)" ngModel required>
+                <div class="search-field-dropdown-content">
+                    <div *ngFor="let c of recipeList | appFilter: searchText">
+                        <div (click)="navigateToRecipe(c._id)" class="search-field-dropdown-result">
+                            <div>
+                                <p class="search-field-dropdown-recipe-name">{{c.recipeName}}</p>
+                                <p class="search-field-dropdown-recipe-content">{{c.recipeContent |
+                                    shortenText}}</p>
+                            </div>
+                            <img class="search-result-img" src="{{c.imageUrl}}" alt="Снимка на рецептата">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <fa-icon id="search-btn" [icon]="faSearch" (click)="submitFormHandler(input.value)"></fa-icon>
+        </div>
+    </div>  
 </nav>
